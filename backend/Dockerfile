@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /egucha_invoice_processing
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
