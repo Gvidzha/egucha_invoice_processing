@@ -1,0 +1,7 @@
+Pavadzīme: enra
+Oriģinālais fails: C:/Code/regex_invoice_processing/uploads/enra.jpg
+OCR ticamība: 26.7%
+Teksta garums: 10 simboli
+============================================================
+
+eee So ees

@@ -1,0 +1,46 @@
+{
+  "field_mappings": {
+    "template_to_db": {
+      "dok_nr": "invoice_number",
+      "piegadatajs": "supplier_name",
+      "piegadataja_reg_nr": "supplier_reg_number",
+      "piegadataja_jur_adrese": "supplier_address",
+      "sanemejs": "recipient_name",
+      "sanemeja_reg_nr": "recipient_reg_number",
+      "sanemeja_jur_adrese": "recipient_address",
+      "kopa_apmaksai": "total_amount",
+      "pvn_summa": "vat_amount",
+      "izrakstisanas_datums": "invoice_date",
+      "dok_piegades_datums": "delivery_date",
+      "curency": "currency"
+    },
+    "db_to_template": {
+      "invoice_number": "dok_nr",
+      "supplier_name": "piegadatajs",
+      "supplier_reg_number": "piegadataja_reg_nr",
+      "supplier_address": "piegadataja_jur_adrese",
+      "recipient_name": "sanemejs",
+      "recipient_reg_number": "sanemeja_reg_nr",
+      "recipient_address": "sanemeja_jur_adrese",
+      "total_amount": "kopa_apmaksai",
+      "vat_amount": "pvn_summa",
+      "invoice_date": "izrakstisanas_datums",
+      "delivery_date": "dok_piegades_datums",
+      "currency": "curency"
+    }
+  },
+  "regex_patterns": {
+    "dok_nr": [
+      "(?:Nr\\.?|Numurs|№)\\s*:?\\s*([A-Z0-9\\-/]+)",
+      "Pavadzīmes?\\s*(?:Nr\\.?|numurs)\\s*:?\\s*([A-Z0-9\\-/]+)"
+    ],
+    "piegadatajs": [
+      "(?:Piegādātājs|Izdevējs)\\s*:?\\s*([^\\n\\r]+)",
+      "SIA\\s+\"?([^\"\\n\\r]+)\"?"
+    ],
+    "kopa_apmaksai": [
+      "(?:Kopā apmaksai|Pavisam|Total)\\s*:?\\s*([0-9,\\.]+)\\s*€?",
+      "KOPSUMMA\\s*:?\\s*([0-9,\\.]+)"
+    ]
+  }
+}

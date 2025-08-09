@@ -1,0 +1,352 @@
+{
+  "RECIPIENT_REG_NUMBER": [
+    {
+      "pattern": "(LV50003999410)",
+      "confidence": 0.9,
+      "example": "LV50003999410",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(LV50003999410)",
+      "confidence": 0.9,
+      "example": "LV50003999410",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40203271137)",
+      "confidence": 0.9,
+      "example": "40203271137",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40203271137)",
+      "confidence": 0.9,
+      "example": "40203271137",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40203271137)",
+      "confidence": 0.9,
+      "example": "40203271137",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40203588920)",
+      "confidence": 0.9,
+      "example": "40203588920",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40203588920)",
+      "confidence": 0.9,
+      "example": "40203588920",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40203588920)",
+      "confidence": 0.9,
+      "example": "40203588920",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40203588920)",
+      "confidence": 0.9,
+      "example": "40203588920",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ],
+  "SUPPLIER": [
+    {
+      "pattern": "(?:SIA\\s+)?(SIA\\ Lindström)",
+      "confidence": 0.9,
+      "example": "SIA Lindström",
+      "invoice_type": "LINDSTROM"
+    }
+  ],
+  "REG_NUMBER": [
+    {
+      "pattern": "(40003237187)",
+      "confidence": 0.9,
+      "example": "40003237187",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40003237187)",
+      "confidence": 0.9,
+      "example": "40003237187",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40003237187)",
+      "confidence": 0.9,
+      "example": "40003237187",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40003237187)",
+      "confidence": 0.9,
+      "example": "40003237187",
+      "invoice_type": "LINDSTROM"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(40003316720)",
+      "confidence": 0.9,
+      "example": "40003316720",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ],
+  "INVOICE_NUMBER": [
+    {
+      "pattern": "(1225/25)",
+      "confidence": 0.9,
+      "example": "1225/25",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(1225/25)",
+      "confidence": 0.9,
+      "example": "1225/25",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(1225/25)",
+      "confidence": 0.9,
+      "example": "1225/25",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(1225/25)",
+      "confidence": 0.9,
+      "example": "1225/25",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ],
+  "VAT_AMOUNT": [
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(21)",
+      "confidence": 0.9,
+      "example": "21",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ],
+  "ADDRESS": [
+    {
+      "pattern": "(Kurkutela5,\\ Liepāja,\\ 1V\\-3101\\ \\)\\ o\\-pasts\\ gnmmtvw/llm\\(\\(n,\\ /wlvrllrgu\\.\\ v,\\ lv\\ 44\\ th\\ A\\ ASSEB\\ banka\\.\\ ae\\ i\\ UNLALV2X\\ a\\ LV48UNI\\.\\ 40012006467299\\ rt\\ LV27HABAoSS1016936895\\ W\\ RĒĶINS\\ 2025\\.\\ gada31\\.\\ marts\\ Nr\\.\\ 1225/25\\ bi\\ Precu/pakalpojumu\\ saņēmējs\\ Ž\\ Latvijascalis,\\ SIA\\ Reg\\.\\ nr\\.\\ 40203588920\\ Banka\\ Swedbank\\ A/S\\ PVNkods\\ kodsHABALV22\\ a\\ JuridiskaadreseCaunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Kurkutela5,\\ Liepāja,\\ 1V\\-3101\\ \\)\\ o\\-pasts\\ gnmmtvw/llm\\(\\(n,\\ /wlvrllrgu\\.\\ v,\\ lv\\ 44\\ th\\ A\\ ASSEB\\ banka\\.\\ ae\\ i\\ UNLALV2X\\ a\\ LV48UNI\\.\\ 40012006467299\\ rt\\ LV27HABAoSS1016936895\\ W\\ RĒĶINS\\ 2025\\.\\ gada31\\.\\ marts\\ Nr\\.\\ 1225/25\\ bi\\ Precu/pakalpojumu\\ saņēmējs\\ Ž\\ Latvijascalis,\\ SIA\\ Reg\\.\\ nr\\.\\ 40203588920\\ Banka\\ Swedbank\\ A/S\\ PVNkods\\ kodsHABALV22\\ a\\ JuridiskaadreseCaunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Kurkutela5,\\ Liepāja,\\ 1V\\-3101\\ \\)\\ o\\-pasts\\ gnmmtvw/llm\\(\\(n,\\ /wlvrllrgu\\.\\ v,\\ lv\\ 44\\ th\\ A\\ ASSEB\\ banka\\.\\ ae\\ i\\ UNLALV2X\\ a\\ LV48UNI\\.\\ 40012006467299\\ rt\\ LV27HABAoSS1016936895\\ W\\ RĒĶINS\\ 2025\\.\\ gada31\\.\\ marts\\ Nr\\.\\ 1225/25\\ bi\\ Precu/pakalpojumu\\ saņēmējs\\ Ž\\ Latvijascalis,\\ SIA\\ Reg\\.\\ nr\\.\\ 40203588920\\ Banka\\ Swedbank\\ A/S\\ PVNkods\\ kodsHABALV22\\ a\\ JuridiskaadreseCaunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Kurkutela5,\\ Liepāja,\\ 1V\\-3101\\ \\)\\ o\\-pasts\\ gnmmtvw/llm\\(\\(n,\\ /wlvrllrgu\\.\\ v,\\ lv\\ 44\\ th\\ A\\ ASSEB\\ banka\\.\\ ae\\ i\\ UNLALV2X\\ a\\ LV48UNI\\.\\ 40012006467299\\ rt\\ LV27HABAoSS1016936895\\ W\\ RĒĶINS\\ 2025\\.\\ gada31\\.\\ marts\\ Nr\\.\\ 1225/25\\ bi\\ Precu/pakalpojumu\\ saņēmējs\\ Ž\\ Latvijascalis,\\ SIA\\ Reg\\.\\ nr\\.\\ 40203588920\\ Banka\\ Swedbank\\ A/S\\ PVNkods\\ kodsHABALV22\\ a\\ JuridiskaadreseCaunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ],
+  "RECIPIENT_ADDRESS": [
+    {
+      "pattern": "(Caunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Caunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Caunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    },
+    {
+      "pattern": "(Caunuiela1\\ 0,\\ Liepaja,\\ LV\\-3401\\ konts\\ LV34HABA0551\\ 058795955\\ 4\\ Pakalpojumusniegsanas\\ adreseCaunuiela10,\\ Liepaja,\\ L\\ V\\-3401\\ PakalpojumusniegSanas\\ periods/2025\\.\\ gadamarts\\ Saimnieciskadarijumaveids\\ Pakalpojumasniegsana\\ Apmaksatlidz\\ 20\\.\\ 04\\.\\ 2025\\.\\ ,\\ Parelektroenergiju\\ P\\-2/12\\-131\\.\\ 00\\-men\\.\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 84\\.\\ 97\\ 8\\ Parelektroenergiju\\ P\\-2/12\\-13kopl\\.\\ 1\\.\\ 00men\\.\\ 3\\.\\ 24\\ 3\\.\\ 24\\ 3\\.\\ 24\\ m\\ Parelektroenergiju\\ Psaldetava3300\\.\\ 00kw\\ 0\\.\\ 19\\ 0\\.\\ 19\\ 57\\.\\ 00\\ 3\\ SummabezPVN\\ 145\\.\\ 21\\.\\ Dokumentaatlaide\\ 0\\.\\ 00\\ KopabezPVN\\ 145\\.\\ 21\\ al\\ Gram\\.\\ reg\\.\\ Nr\\.\\ 25\\-0003062\\ PVN21%\\ 21\\.\\ 0%\\ 30\\.\\ 49\\ D2310K61200\\ 145\\.\\ 21\\ i\\ D2310K5721030\\.\\ 49\\ 3\\ me\\ KopaapmaksaiEUR\\ 175\\.\\ 70\\ DuikyoWRNO\\ SummavardiemVienssimts\\ septindesmitpiecieuroun\\ 70centi\\ k\\ Saskanaamomaslig\\.\\ par\\ elektroenergiju\\ Rekinusagatavoja\\ va\\ Tel,\\ 63423517\\ a\\ E\\-pasts\\.\\ gramatvediba\\(Opetertirgus\\.\\ lv\\ 1\\ Rēķinssagatavotselektroniskiun\\ derigsbezparakstasaskandarlikumuGramatvedibaslikums\\ 11\\.\\ p\\.\\ 8\\.\\ d\\.\\ Š)",
+      "confidence": 0.9,
+      "example": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+      "invoice_type": "PETERSTIRGUS"
+    }
+  ]
+}

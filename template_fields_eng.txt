@@ -1,0 +1,98 @@
+# Template Field Mapping: Latvian -> English (Database Columns)
+# Complete field mapping for database schema redesign
+
+# Document Information
+dok_tips: document_type
+dok_serija: document_series  
+dok_nr: document_number
+dok_piegades_datums: delivery_date
+pakalpojuma_piegades_datums: service_delivery_date
+liguma_nr: contract_number
+
+# Supplier Information (Piegādātājs)
+piegadatajs: supplier_name
+piegadataja_pvd_nr: supplier_vat_payer_number
+piegadataja_pvn: supplier_vat_number
+piegadataja_reg_nr: supplier_registration_number
+piegadataja_jur_adrese: supplier_legal_address
+izsniegsanas_adrese: issue_address
+
+# Supplier Banking (Primary)
+piegadataja_banka: supplier_bank_name
+piegadataja_konts: supplier_account_number
+piegadataja_swift: supplier_swift_code
+
+# Supplier Banking (Additional Banks 1-4)
+piegadataja_banka_1: supplier_bank_name_1
+piegadataja_konts_1: supplier_account_number_1
+piegadataja_swift_1: supplier_swift_code_1
+piegadataja_banka_2: supplier_bank_name_2
+piegadataja_konts_2: supplier_account_number_2
+piegadataja_swift_2: supplier_swift_code_2
+piegadataja_banka_3: supplier_bank_name_3
+piegadataja_konts_3: supplier_account_number_3
+piegadataja_swift_3: supplier_swift_code_3
+piegadataja_banka_4: supplier_bank_name_4
+piegadataja_konts_4: supplier_account_number_4
+piegadataja_swift_4: supplier_swift_code_4
+
+# Recipient Information (Saņēmējs)
+sanemejs: recipient_name
+sanemeja_pvn: recipient_vat_number
+sanemeja_reg_nr: recipient_registration_number
+sanemeja_jur_adrese: recipient_legal_address
+sanemsanas_adrese: receiving_address
+
+# Recipient Banking
+sanemeja_banka: recipient_bank_name
+sanemeja_konts: recipient_account_number
+sanemeja_swift: recipient_swift_code
+
+# Transport Information (Transporta informācija)
+parvadatajs: carrier_name
+parvadataja_pvn: carrier_vat_number
+trans_lidz_nr: vehicle_number
+auto_vaditajs: driver_name
+
+# Transaction Information (Darījuma informācija)
+darijums: transaction_type
+pakalpojuma_periods: service_period
+apmaksas_veids: payment_method
+piezimes: notes
+
+# Financial Information (Finanšu informācija)
+curency: currency
+atlaide: discount
+kopā_ar_atlaidi: total_with_discount
+summa_ar_atlaidi: amount_with_discount
+summa_bez_atlaides: amount_without_discount
+summa_bez_pvn: amount_without_vat
+pvn_summa: vat_amount
+kopa_apmaksai: total_amount
+
+# Additional Information (Papildu informācija)
+izsniedza_vards_uzvards: issued_by_name
+izrakstisanas_datums: invoice_date
+apmaksat_lidz: payment_due_date
+pamatojums: justification
+kopa_izsniegts: total_issued
+svars_kg: weight_kg
+izsniedza: issued_by
+daudzums_kopa: total_quantity
+lapa: page_number
+
+# Product Information (Produktu informācija)
+# These will be stored in separate products table
+produkti_nr: product_sequence_number
+produkti_piegades_datums: product_delivery_date
+produkti_kods: product_code
+produkti_prece: product_name
+produkti_izlietot: product_usage
+produkti_ienak_partijas_nr: incoming_batch_number
+produkti_merv: unit_of_measure
+produkti_daudzums: quantity
+produkti_cena: unit_price
+produkti_atlaide: product_discount
+produkti_cena_ar_atlaidi: price_with_discount
+produkti_pvn_likme: vat_rate
+produkti_summa: total_price

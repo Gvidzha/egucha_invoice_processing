@@ -1,0 +1,286 @@
+{
+  "template_name": "",
+  "language": "lv",
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-01-01",
+    "description": "Latvijas pavadzīmju lauku definīcijas"
+  },
+  "fields": {
+    "document": {
+      "dok_tips": {
+        "type": "string",
+        "required": true,
+        "description": "Dokumenta tips"
+      },
+      "dok_serija": {
+        "type": "string",
+        "description": "Dokumenta sērija"
+      },
+      "dok_nr": {
+        "type": "string",
+        "required": true,
+        "description": "Dokumenta numurs"
+      },
+      "dok_piegades_datums": {
+        "type": "date",
+        "description": "Piegādes datums"
+      },
+      "pakalpojuma_piegades_datums": {
+        "type": "date",
+        "description": "Pakalpojuma piegādes datums"
+      },
+      "liguma_nr": {
+        "type": "string",
+        "description": "Līguma numurs"
+      }
+    },
+    "supplier": {
+      "piegadatajs": {
+        "type": "string",
+        "required": true,
+        "description": "Piegādātāja nosaukums"
+      },
+      "piegadataja_pvd_nr": {
+        "type": "string",
+        "description": "Piegādātāja PVD numurs"
+      },
+      "piegadataja_pvn": {
+        "type": "string",
+        "description": "PVN numurs"
+      },
+      "piegadataja_reg_nr": {
+        "type": "string",
+        "description": "Reģistrācijas numurs"
+      },
+      "piegadataja_jur_adrese": {
+        "type": "string",
+        "description": "Juridiskā adrese"
+      },
+      "izsniegsanas_adrese": {
+        "type": "string",
+        "description": "Izsniegšanas adrese"
+      },
+      "banks": [
+        {
+          "piegadataja_banka": {
+            "type": "string",
+            "description": "Bankas nosaukums"
+          },
+          "piegadataja_konts": {
+            "type": "string",
+            "description": "Konta numurs"
+          },
+          "piegadataja_swift": {
+            "type": "string",
+            "description": "SWIFT kods"
+          }
+        }
+      ]
+    },
+    "recipient": {
+      "sanemejs": {
+        "type": "string",
+        "required": true,
+        "description": "Saņēmēja nosaukums"
+      },
+      "sanemeja_pvn": {
+        "type": "string",
+        "description": "Saņēmēja PVN"
+      },
+      "sanemeja_reg_nr": {
+        "type": "string",
+        "description": "Saņēmēja reģ. numurs"
+      },
+      "sanemeja_banka": {
+        "type": "string",
+        "description": "Saņēmēja banka"
+      },
+      "sanemeja_konts": {
+        "type": "string",
+        "description": "Saņēmēja konts"
+      },
+      "sanemeja_swift": {
+        "type": "string",
+        "description": "Saņēmēja SWIFT"
+      },
+      "sanemeja_jur_adrese": {
+        "type": "string",
+        "description": "Saņēmēja juridiskā adrese"
+      },
+      "sanemsanas_adrese": {
+        "type": "string",
+        "description": "Saņemšanas adrese"
+      }
+    },
+    "transport": {
+      "parvadatajs": {
+        "type": "string",
+        "description": "Pārvadātājs"
+      },
+      "parvadataja_pvn": {
+        "type": "string",
+        "description": "Pārvadātāja PVN"
+      },
+      "trans_lidz_nr": {
+        "type": "string",
+        "description": "Transportlīdzekļa numurs"
+      },
+      "auto_vaditajs": {
+        "type": "string",
+        "description": "Auto vadītājs"
+      }
+    },
+    "financial": {
+      "curency": {
+        "type": "string",
+        "default": "EUR",
+        "description": "Valūta"
+      },
+      "atlaide": {
+        "type": "decimal",
+        "description": "Atlaide"
+      },
+      "kopa_ar_atlaidi": {
+        "type": "decimal",
+        "description": "Kopā ar atlaidi"
+      },
+      "summa_ar_atlaidi": {
+        "type": "decimal",
+        "description": "Summa ar atlaidi"
+      },
+      "summa_bez_atlaides": {
+        "type": "decimal",
+        "description": "Summa bez atlaides"
+      },
+      "summa_bez_pvn": {
+        "type": "decimal",
+        "description": "Summa bez PVN"
+      },
+      "pvn_summa": {
+        "type": "decimal",
+        "description": "PVN summa"
+      },
+      "kopa_apmaksai": {
+        "type": "decimal",
+        "required": true,
+        "description": "Kopā apmaksai"
+      }
+    },
+    "other": {
+      "darijums": {
+        "type": "string",
+        "description": "Darījuma tips"
+      },
+      "pakalpojuma_periods": {
+        "type": "string",
+        "description": "Pakalpojuma periods"
+      },
+      "apmaksas_veids": {
+        "type": "string",
+        "description": "Apmaksas veids"
+      },
+      "piezimes": {
+        "type": "text",
+        "description": "Piezīmes"
+      },
+      "izsniedza_vards_uzvards": {
+        "type": "string",
+        "description": "Izsniedza (vārds, uzvārds)"
+      },
+      "izrakstisanas_datums": {
+        "type": "date",
+        "description": "Izrakstīšanas datums"
+      },
+      "apmaksat_lidz": {
+        "type": "date",
+        "description": "Apmaksāt līdz"
+      },
+      "pamatojums": {
+        "type": "string",
+        "description": "Pamatojums"
+      },
+      "kopa_izsniegts": {
+        "type": "string",
+        "description": "Kopā izsniegts"
+      },
+      "svars_kg": {
+        "type": "decimal",
+        "description": "Svars (kg)"
+      },
+      "izsniedza": {
+        "type": "string",
+        "description": "Izsniedza"
+      },
+      "daudzums_kopa": {
+        "type": "decimal",
+        "description": "Daudzums kopā"
+      },
+      "lapa": {
+        "type": "integer",
+        "description": "Lapas numurs"
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "Nr": {
+          "type": "integer",
+          "description": "Pozīcijas numurs"
+        },
+        "piegades_datums": {
+          "type": "date",
+          "description": "Piegādes datums"
+        },
+        "kods": {
+          "type": "string",
+          "description": "Preces kods"
+        },
+        "prece": {
+          "type": "string",
+          "required": true,
+          "description": "Preces nosaukums"
+        },
+        "izlietot": {
+          "type": "string",
+          "description": "Izlietošanas veids"
+        },
+        "ienak_partijas_nr": {
+          "type": "string",
+          "description": "Ienākošās partijas numurs"
+        },
+        "merv": {
+          "type": "string",
+          "description": "Mērvienība"
+        },
+        "daudzums": {
+          "type": "decimal",
+          "required": true,
+          "description": "Daudzums"
+        },
+        "cena": {
+          "type": "decimal",
+          "required": true,
+          "description": "Cena"
+        },
+        "atlaide": {
+          "type": "decimal",
+          "description": "Atlaide"
+        },
+        "cena_ar_atlaidi": {
+          "type": "decimal",
+          "description": "Cena ar atlaidi"
+        },
+        "pvn_likme": {
+          "type": "decimal",
+          "description": "PVN likme (%)"
+        },
+        "summa": {
+          "type": "decimal",
+          "required": true,
+          "description": "Kopējā summa"
+        }
+      }
+    }
+  }
+}

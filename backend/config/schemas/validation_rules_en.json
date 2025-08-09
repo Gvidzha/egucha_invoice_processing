@@ -1,0 +1,253 @@
+{
+  "validation_rules": {
+    "document_number": {
+      "min_length": 1,
+      "max_length": 50,
+      "pattern": "^[A-Z0-9\\-/]+$",
+      "required": true,
+      "error_messages": {
+        "required": "Document number is required",
+        "pattern": "Document number can only contain letters, numbers, hyphens and slashes",
+        "min_length": "Document number cannot be empty",
+        "max_length": "Document number cannot exceed 50 characters"
+      }
+    },
+    "supplier_name": {
+      "min_length": 2,
+      "max_length": 200,
+      "required": true,
+      "forbidden_patterns": ["[0-9]{11,}", "test", "TEST"],
+      "error_messages": {
+        "required": "Supplier name is required",
+        "min_length": "Supplier name is too short",
+        "max_length": "Supplier name is too long",
+        "forbidden_patterns": "Supplier name contains invalid values"
+      }
+    },
+    "supplier_reg_number": {
+      "pattern": "^[0-9]{11}$",
+      "min_length": 11,
+      "max_length": 11,
+      "error_messages": {
+        "pattern": "Registration number must contain exactly 11 digits",
+        "min_length": "Registration number is too short",
+        "max_length": "Registration number is too long"
+      }
+    },
+    "supplier_vat_number": {
+      "pattern": "^LV[0-9]{11}$",
+      "min_length": 13,
+      "max_length": 13,
+      "error_messages": {
+        "pattern": "VAT number must start with 'LV' and contain 11 digits",
+        "min_length": "VAT number is too short",
+        "max_length": "VAT number is too long"
+      }
+    },
+    "recipient_name": {
+      "min_length": 2,
+      "max_length": 200,
+      "required": true,
+      "error_messages": {
+        "required": "Recipient name is required",
+        "min_length": "Recipient name is too short",
+        "max_length": "Recipient name is too long"
+      }
+    },
+    "total_amount": {
+      "type": "decimal",
+      "min_value": 0,
+      "max_value": 999999.99,
+      "decimal_places": 2,
+      "required": true,
+      "error_messages": {
+        "required": "Total amount is required",
+        "type": "Total amount must be a number",
+        "min_value": "Total amount cannot be negative",
+        "max_value": "Total amount is too large",
+        "decimal_places": "Total amount cannot be more precise than 2 decimal places"
+      }
+    },
+    "vat_amount": {
+      "type": "decimal",
+      "min_value": 0,
+      "max_value": 999999.99,
+      "decimal_places": 2,
+      "error_messages": {
+        "type": "VAT amount must be a number",
+        "min_value": "VAT amount cannot be negative",
+        "max_value": "VAT amount is too large",
+        "decimal_places": "VAT amount cannot be more precise than 2 decimal places"
+      }
+    },
+    "invoice_date": {
+      "type": "date",
+      "min_date": "2000-01-01",
+      "max_date": "2030-12-31",
+      "formats": ["YYYY-MM-DD", "DD.MM.YYYY", "DD/MM/YYYY"],
+      "required": false,
+      "error_messages": {
+        "type": "Date is not in correct format",
+        "min_date": "Date cannot be before year 2000",
+        "max_date": "Date cannot be after year 2030",
+        "formats": "Supported date formats: YYYY-MM-DD, DD.MM.YYYY, DD/MM/YYYY"
+      }
+    },
+    "delivery_date": {
+      "type": "date",
+      "min_date": "2000-01-01",
+      "max_date": "2030-12-31",
+      "formats": ["YYYY-MM-DD", "DD.MM.YYYY", "DD/MM/YYYY"],
+      "error_messages": {
+        "type": "Delivery date is not in correct format",
+        "min_date": "Delivery date cannot be before year 2000",
+        "max_date": "Delivery date cannot be after year 2030"
+      }
+    },
+    "currency": {
+      "allowed_values": ["EUR", "USD", "GBP", "LVL"],
+      "default": "EUR",
+      "pattern": "^[A-Z]{3}$",
+      "error_messages": {
+        "allowed_values": "Supported currencies: EUR, USD, GBP, LVL",
+        "pattern": "Currency code must contain exactly 3 capital letters"
+      }
+    },
+    "products": {
+      "type": "array",
+      "min_items": 0,
+      "max_items": 100,
+      "item_validation": {
+        "product_name": {
+          "min_length": 1,
+          "max_length": 300,
+          "required": true,
+          "error_messages": {
+            "required": "Product name is required",
+            "min_length": "Product name cannot be empty",
+            "max_length": "Product name is too long"
+          }
+        },
+        "quantity": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.999,
+          "decimal_places": 3,
+          "required": true,
+          "error_messages": {
+            "required": "Quantity is required",
+            "type": "Quantity must be a number",
+            "min_value": "Quantity cannot be negative",
+            "max_value": "Quantity is too large"
+          }
+        },
+        "unit_price": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.99,
+          "decimal_places": 2,
+          "required": true,
+          "error_messages": {
+            "required": "Unit price is required",
+            "type": "Unit price must be a number",
+            "min_value": "Unit price cannot be negative",
+            "max_value": "Unit price is too large"
+          }
+        },
+        "total_price": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.99,
+          "decimal_places": 2,
+          "required": true,
+          "validation_logic": "total_price_should_equal_quantity_times_unit_price",
+          "error_messages": {
+            "required": "Total price is required",
+            "type": "Total price must be a number",
+            "min_value": "Total price cannot be negative",
+            "max_value": "Total price is too large",
+            "validation_logic": "Total price does not match quantity × unit price"
+          }
+        }
+      },
+      "error_messages": {
+        "type": "Products list must be an array",
+        "min_items": "At least one product is required",
+        "max_items": "Cannot have more than 100 products"
+      }
+    }
+  },
+  "cross_field_validation": {
+    "vat_calculation": {
+      "description": "Checks if VAT calculation is correct",
+      "fields": ["amount_without_vat", "vat_amount", "total_amount"],
+      "logic": "total_amount should equal amount_without_vat + vat_amount",
+      "tolerance": 0.01,
+      "error_message": "VAT calculation is incorrect: Total amount ≠ Amount without VAT + VAT amount"
+    },
+    "date_consistency": {
+      "description": "Checks date consistency",
+      "fields": ["invoice_date", "delivery_date"],
+      "logic": "delivery_date should be >= invoice_date",
+      "error_message": "Delivery date cannot be before invoice date"
+    },
+    "supplier_recipient_different": {
+      "description": "Checks if supplier and recipient are different",
+      "fields": ["supplier_name", "recipient_name"],
+      "logic": "fields should not be equal",
+      "error_message": "Supplier and recipient cannot be the same"
+    }
+  },
+  "confidence_thresholds": {
+    "high_confidence": 0.9,
+    "medium_confidence": 0.7,
+    "low_confidence": 0.5,
+    "reject_threshold": 0.3,
+    "field_specific": {
+      "document_number": {
+        "high": 0.95,
+        "medium": 0.8,
+        "low": 0.6
+      },
+      "total_amount": {
+        "high": 0.9,
+        "medium": 0.75,
+        "low": 0.6
+      }
+    }
+  },
+  "auto_correction_rules": {
+    "enabled": true,
+    "rules": {
+      "trim_whitespace": {
+        "applies_to": ["all_text_fields"],
+        "description": "Remove extra whitespace"
+      },
+      "normalize_currency": {
+        "applies_to": ["currency"],
+        "mappings": {
+          "eur": "EUR",
+          "euro": "EUR",
+          "€": "EUR",
+          "lats": "LVL",
+          "ls": "LVL"
+        }
+      },
+      "normalize_company_names": {
+        "applies_to": ["supplier_name", "recipient_name"],
+        "rules": [
+          "Remove quotes around company names",
+          "Normalize SIA/AS prefixes",
+          "Fix common OCR mistakes in company suffixes"
+        ]
+      },
+      "format_registration_numbers": {
+        "applies_to": ["supplier_reg_number", "recipient_reg_number"],
+        "rules": [
+          "Remove non-numeric characters",
+          "Ensure exactly 11 digits"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,505 @@
+[
+  {
+    "original_text": "\nPAVADZĪME Nr. P240509001\n\nSIA Lindström\nReg.Nr.: LV40003410015\nAdrese: Daugavgrīvas iela 26, Rīga, LV-1050\nKonts: LV10UNLA0050012345678\n\nPiegāde uz: \nSIA \"Uzņēmums ABC\"\nReg.Nr.: LV50003999410\nAdrese: Brīvības iela 123, Rīga, LV-1010\n\nDatums: 09.05.2024\nDerīgs līdz: 09.05.2025\n\nMSW1 Pelkspaklajs85X150 09.05.2025      1      5,20      5,20\nMSW2 Darba halāts XL                     2      8,50     17,00\n\nSumma bez PVN:                                           22,20\nPVN 21%:                                                  4,66\nKOPĀ:                                                    26,86 EUR\n",
+    "corrected_entities": [
+      {
+        "text": "SIA Lindström Latvija",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "SIA Uzņēmums ABC",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "LV50003999410",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "26.86",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      }
+    ],
+    "timestamp": "2025-08-01T08:50:34.656143",
+    "supplier_name": "SIA Lindström Latvija",
+    "invoice_type": "LINDSTROM"
+  },
+  {
+    "original_text": "\nPAVADZĪME Nr. P240509001\n\nSIA Lindström\nReg.Nr.: LV40003410015\nAdrese: Daugavgrīvas iela 26, Rīga, LV-1050\nKonts: LV10UNLA0050012345678\n\nPiegāde uz: \nSIA \"Uzņēmums ABC\"\nReg.Nr.: LV50003999410\nAdrese: Brīvības iela 123, Rīga, LV-1010\n\nDatums: 09.05.2024\nDerīgs līdz: 09.05.2025\n\nMSW1 Pelkspaklajs85X150 09.05.2025      1      5,20      5,20\nMSW2 Darba halāts XL                     2      8,50     17,00\n\nSumma bez PVN:                                           22,20\nPVN 21%:                                                  4,66\nKOPĀ:                                                    26,86 EUR\n",
+    "corrected_entities": [
+      {
+        "text": "SIA Lindström",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "SIA Uzņēmums ABC",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "LV50003999410",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "26.86",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      }
+    ],
+    "timestamp": "2025-08-01T08:54:00.165089",
+    "supplier_name": "SIA Lindström",
+    "invoice_type": "LINDSTROM"
+  },
+  {
+    "original_text": "ete -. if ik a Rēķins Lapa1(1) gt RēķinaNr. 71068107 ig Izrakstibanasdat. 31. 05. 2025 %, Kllenta/LTgumaNr. 3994410 e o P) x)Lindstrēm ŽiroNr 10867 U Apmaksasterming 14dienas i Meistaruiela4Pipki, Babitespag, Mirupesnovads, LV-2107, g Meldruielala pmaksasvelds ar parskaitfjumu ie Riga, LV-5015 Pretenzijuizskatigana8dienas 1-3 Latvija Sodanaudadiena 0, 1% ē rekiniOriga. sushistation. lv KllentaPVNreg. Nr. LV40203271137 a KlientajuridiskaadreseKapsdtasiela20/22, Liepaja, Latvija 44 144 - Vaisaskanaarligumanosacijumiem. ļ t SIALINDSTROMKONTAKTINFORMACIJA TALRUNIS437167913120 i E-PASTSlatvijaOlindstromgroup. com š Piegadesdatums Cena, EURApmaksai, EUR j Mērvienība gab. 4 3994410 Piegddesadrese i NVERIGASIA Meldruielala, Riga (zs LV-5015, Latvija - 999- - Noma/piegade MSW1 Pelkspaklajs85X150 09. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 23. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 02. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 16. 05. 2025 1 5, 20 5, 20 3 MSW1 Pelkspaklajs85X150 30. 05. 2025 1 5, 20 5, 20 4 Nod. 999kopa 26, 00 Klients3994410kopa 26, 00 a SummabezPVN(EUR). 26, 00945%0) PVN21%(EUR) 5, 46DOT Apmaksai(EUR). 31, 46458i0 Maksajumuslidzamveiktuzzemaknoraditobankaskontu- 1 SEBBankaAS, KodsUNLALV2xKontsLV92UNLA0055001187469 ā ApmaksajotladzunoraditrekinaNr. 71068107 Saimnieciskadarijumaveids-pakalpojumasniegSana PakalpojumasniegSanasperiods01. 05. 2025-31. 05. 2025 Sisrekinsirsagatavotselektroniskiunapliecinatsarelektroniskoparakstu 39944107106810731052025 5 Klientuservisavaditaja. MairitaKazeka Ak N š 53 Š b B o - te LindstromSIA ASSEBbanka Wee Reg. Nr. 40003237187, PVNNr. LV40003237187 Bankaskods UNLALV2X i Sep, Mlle lela4, Pinkl, Babitespag, Marupesnovads, LV-2107 Nordkin. kontsLV92UNLA0055001 187469 hi Q. 00000)00 ļ11 1l % 4 i)",
+    "corrected_entities": [
+      {
+        "text": "NVE RIGA SIA",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "4003237187",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203271137",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "31.46",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "5.46",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-05-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Meistaru iela 4, Piņķi, Babītes pag, Mārupes novads LV-2107",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Meldru iela 1a Rīga, LV-5015, Latvija",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-01T09:56:10.499585",
+    "supplier_name": null,
+    "invoice_type": "LINDSTROM"
+  },
+  {
+    "original_text": "ete -. if ik a Rēķins Lapa1(1) gt RēķinaNr. 71068107 ig Izrakstibanasdat. 31. 05. 2025 %, Kllenta/LTgumaNr. 3994410 e o P) x)Lindstrēm ŽiroNr 10867 U Apmaksasterming 14dienas i Meistaruiela4Pipki, Babitespag, Mirupesnovads, LV-2107, g Meldruielala pmaksasvelds ar parskaitfjumu ie Riga, LV-5015 Pretenzijuizskatigana8dienas 1-3 Latvija Sodanaudadiena 0, 1% ē rekiniOriga. sushistation. lv KllentaPVNreg. Nr. LV40203271137 a KlientajuridiskaadreseKapsdtasiela20/22, Liepaja, Latvija 44 144 - Vaisaskanaarligumanosacijumiem. ļ t SIALINDSTROMKONTAKTINFORMACIJA TALRUNIS437167913120 i E-PASTSlatvijaOlindstromgroup. com š Piegadesdatums Cena, EURApmaksai, EUR j Mērvienība gab. 4 3994410 Piegddesadrese i NVERIGASIA Meldruielala, Riga (zs LV-5015, Latvija - 999- - Noma/piegade MSW1 Pelkspaklajs85X150 09. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 23. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 02. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 16. 05. 2025 1 5, 20 5, 20 3 MSW1 Pelkspaklajs85X150 30. 05. 2025 1 5, 20 5, 20 4 Nod. 999kopa 26, 00 Klients3994410kopa 26, 00 a SummabezPVN(EUR). 26, 00945%0) PVN21%(EUR) 5, 46DOT Apmaksai(EUR). 31, 46458i0 Maksajumuslidzamveiktuzzemaknoraditobankaskontu- 1 SEBBankaAS, KodsUNLALV2xKontsLV92UNLA0055001187469 ā ApmaksajotladzunoraditrekinaNr. 71068107 Saimnieciskadarijumaveids-pakalpojumasniegSana PakalpojumasniegSanasperiods01. 05. 2025-31. 05. 2025 Sisrekinsirsagatavotselektroniskiunapliecinatsarelektroniskoparakstu 39944107106810731052025 5 Klientuservisavaditaja. MairitaKazeka Ak N š 53 Š b B o - te LindstromSIA ASSEBbanka Wee Reg. Nr. 40003237187, PVNNr. LV40003237187 Bankaskods UNLALV2X i Sep, Mlle lela4, Pinkl, Babitespag, Marupesnovads, LV-2107 Nordkin. kontsLV92UNLA0055001 187469 hi Q. 00000)00 ļ11 1l % 4 i)",
+    "corrected_entities": [
+      {
+        "text": "NVE RIGA SIA",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "40003237187",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203271137",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "5.46",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-05-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Meistaru iela 4, Pinķi, Babītes pag. Mārupes novads, LV-2107",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Meldru iela 1a Rīga, LV-5015",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-01T10:01:54.232073",
+    "supplier_name": null,
+    "invoice_type": "LINDSTROM"
+  },
+  {
+    "original_text": "ete -. if ik a Rēķins Lapa1(1) gt RēķinaNr. 71068107 ig Izrakstibanasdat. 31. 05. 2025 %, Kllenta/LTgumaNr. 3994410 e o P) x)Lindstrēm ŽiroNr 10867 U Apmaksasterming 14dienas i Meistaruiela4Pipki, Babitespag, Mirupesnovads, LV-2107, g Meldruielala pmaksasvelds ar parskaitfjumu ie Riga, LV-5015 Pretenzijuizskatigana8dienas 1-3 Latvija Sodanaudadiena 0, 1% ē rekiniOriga. sushistation. lv KllentaPVNreg. Nr. LV40203271137 a KlientajuridiskaadreseKapsdtasiela20/22, Liepaja, Latvija 44 144 - Vaisaskanaarligumanosacijumiem. ļ t SIALINDSTROMKONTAKTINFORMACIJA TALRUNIS437167913120 i E-PASTSlatvijaOlindstromgroup. com š Piegadesdatums Cena, EURApmaksai, EUR j Mērvienība gab. 4 3994410 Piegddesadrese i NVERIGASIA Meldruielala, Riga (zs LV-5015, Latvija - 999- - Noma/piegade MSW1 Pelkspaklajs85X150 09. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 23. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 02. 05. 2025 1 5, 20 5, 20 MSW1 Pelkspaklajs85X150 16. 05. 2025 1 5, 20 5, 20 3 MSW1 Pelkspaklajs85X150 30. 05. 2025 1 5, 20 5, 20 4 Nod. 999kopa 26, 00 Klients3994410kopa 26, 00 a SummabezPVN(EUR). 26, 00945%0) PVN21%(EUR) 5, 46DOT Apmaksai(EUR). 31, 46458i0 Maksajumuslidzamveiktuzzemaknoraditobankaskontu- 1 SEBBankaAS, KodsUNLALV2xKontsLV92UNLA0055001187469 ā ApmaksajotladzunoraditrekinaNr. 71068107 Saimnieciskadarijumaveids-pakalpojumasniegSana PakalpojumasniegSanasperiods01. 05. 2025-31. 05. 2025 Sisrekinsirsagatavotselektroniskiunapliecinatsarelektroniskoparakstu 39944107106810731052025 5 Klientuservisavaditaja. MairitaKazeka Ak N š 53 Š b B o - te LindstromSIA ASSEBbanka Wee Reg. Nr. 40003237187, PVNNr. LV40003237187 Bankaskods UNLALV2X i Sep, Mlle lela4, Pinkl, Babitespag, Marupesnovads, LV-2107 Nordkin. kontsLV92UNLA0055001 187469 hi Q. 00000)00 ļ11 1l % 4 i)",
+    "corrected_entities": [
+      {
+        "text": "NVE RIGA SIA",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "40003237187",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203271137",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "31.46",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "5.46",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "Meistaru iela 4, Piņķi, Babītes pag. Mārupes novads, LV-2107",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Meldru iela 1a, Rīga, LV-5015 Latvija",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-01T10:30:00.195079",
+    "supplier_name": null,
+    "invoice_type": "LINDSTROM"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Liepājas Pētertirgus SIA",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "Latvijas cālis, SIA",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "30.49",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kuršu iela 5, Liepāja, LV-3101",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunu iela10, Liepāja, LV-3401",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-01T13:45:17.613894",
+    "supplier_name": "Liepājas Pētertirgus SIA",
+    "invoice_type": "PETERSTIRGUS"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Latvijas cālis, SIA",
+        "label": "RECIPIENT",
+        "field": "recipient_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "30.49",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kuršu iela 5, Liepāja, LV-3401",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunu iela10, Liepāja, LV-3401",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-01T13:56:43.346232",
+    "supplier_name": null,
+    "invoice_type": "PETERSTIRGUS"
+  },
+  {
+    "original_text": "3 Ba - pavadzīmeNr. VIS2508271 wa. 2025, gada7, maljs Pi 5, egādātājs. SIATIM-T Reg, Nr. 43903001784 Jurid. adrese/dekl. da. v, 2ee lela22a, Smiltene, Smiltenesnov. , Latvija, LV- PVNNe. LV43903001784 29 Norekinurekviziti A/sSEBbanka Konts LV28UNLA0055001111312 lasniegSanasvieta-Viskajulela3, Riga, Latvija, LV-1026(A078787) Agents SavienkoGints(mob. 26911418) SakomplektgjaSirSovsDeniss. Saņēmējs Latvijascalis, SIA Reg. Nr. 40203588920 Ligumsno11. 10. 2024. N Jurid. adrese/dekl. dz. v. Caunuiela10, Liepaja, Latvija, LV-3401 PVNNr. Norekinurekviziti Swedbank, AS, kodsHABALV22 Konts LV34HABA0551058795955 SanemSanasvietaKurSuiela5/7, Liepaja, Latvija, LV-3401 (talr. 29441175) Piegādes mai Apmaksastermins2025. gada21. maljs ee 2025. gada7. maijs Apmaksasveids Parskaitijums Papildinformacija PretupardoSana lzlietotlidzdatumuskatituzlepakojuma ates Pretukategorijasputnugajaiskatituz markjuma. Precu uzglabaSanas nosacijumiatdze, -majputnugalai(0-4C), saldetaiun atrisaldetaimajputnugalai(-18C) Ī saa - āā e et - T - ļ Īlenākošās Cena, , , . kopā I Kods Precesnosaukums/piezimes partijasMērv. daudzums. (Eun)1pvn(EUR) V inumurs L oa Ī as ET4eLeTewceel aa T, 9961125002564 Atdz. broileriAkat. PL28063901WE, (15kg/kaste)/Izlietot)o6o595kg 135, 000, 2, 83/21% 382, 05, Vidz09. 05. 2025 ee fe L Š 9961125008290 BroileruceturtdaJassaldtasAkat. BEE4000EG, 1030325 ke 100, 000 1, 8021% 180, 00 (10kg/kaste) eeeeETT 4751033441525Broilerumuguras(lields)saldetasAkat. LVA066911EKL090425 kg140, 0000, 7021%28, 00, 2852671100002LiellopuaknassaldētasCZ333ES, (10kg/kaste) 1090425kg20, 0001, 56. 21%31, 20 kopā ĶGGGĒGa(caŪŽ V arPVN21%apl. summa(EUR)621, 25 PVN21%(EUR)130, 46 Summakopa(EUR)751, 71 Apmaksassummavardiemseptini simtipiecdesmitvienseirounseptindesmitvienscents Dil ONO ee Izsniedza. ELOEAL Pien€ma % ēf(l-, Vards, uzvards iedBBSeea Datums a 4 oy Paraksts CienijamaissadarbibaspartnerilInformejam, kaparapmaksaskavajumupecdokumentanoraditaterminanakogais darijumstiksslgtsp€cavansamaksajuma sanemSanas. Lappuselno1",
+    "corrected_entities": [],
+    "timestamp": "2025-08-03T13:28:39.097465",
+    "supplier_name": null,
+    "invoice_type": "TIM_T"
+  },
+  {
+    "original_text": "3 Ba - pavadzīmeNr. VIS2508271 wa. 2025, gada7, maljs Pi 5, egādātājs. SIATIM-T Reg, Nr. 43903001784 Jurid. adrese/dekl. da. v, 2ee lela22a, Smiltene, Smiltenesnov. , Latvija, LV- PVNNe. LV43903001784 29 Norekinurekviziti A/sSEBbanka Konts LV28UNLA0055001111312 lasniegSanasvieta-Viskajulela3, Riga, Latvija, LV-1026(A078787) Agents SavienkoGints(mob. 26911418) SakomplektgjaSirSovsDeniss. Saņēmējs Latvijascalis, SIA Reg. Nr. 40203588920 Ligumsno11. 10. 2024. N Jurid. adrese/dekl. dz. v. Caunuiela10, Liepaja, Latvija, LV-3401 PVNNr. Norekinurekviziti Swedbank, AS, kodsHABALV22 Konts LV34HABA0551058795955 SanemSanasvietaKurSuiela5/7, Liepaja, Latvija, LV-3401 (talr. 29441175) Piegādes mai Apmaksastermins2025. gada21. maljs ee 2025. gada7. maijs Apmaksasveids Parskaitijums Papildinformacija PretupardoSana lzlietotlidzdatumuskatituzlepakojuma ates Pretukategorijasputnugajaiskatituz markjuma. Precu uzglabaSanas nosacijumiatdze, -majputnugalai(0-4C), saldetaiun atrisaldetaimajputnugalai(-18C) Ī saa - āā e et - T - ļ Īlenākošās Cena, , , . kopā I Kods Precesnosaukums/piezimes partijasMērv. daudzums. (Eun)1pvn(EUR) V inumurs L oa Ī as ET4eLeTewceel aa T, 9961125002564 Atdz. broileriAkat. PL28063901WE, (15kg/kaste)/Izlietot)o6o595kg 135, 000, 2, 83/21% 382, 05, Vidz09. 05. 2025 ee fe L Š 9961125008290 BroileruceturtdaJassaldtasAkat. BEE4000EG, 1030325 ke 100, 000 1, 8021% 180, 00 (10kg/kaste) eeeeETT 4751033441525Broilerumuguras(lields)saldetasAkat. LVA066911EKL090425 kg140, 0000, 7021%28, 00, 2852671100002LiellopuaknassaldētasCZ333ES, (10kg/kaste) 1090425kg20, 0001, 56. 21%31, 20 kopā ĶGGGĒGa(caŪŽ V arPVN21%apl. summa(EUR)621, 25 PVN21%(EUR)130, 46 Summakopa(EUR)751, 71 Apmaksassummavardiemseptini simtipiecdesmitvienseirounseptindesmitvienscents Dil ONO ee Izsniedza. ELOEAL Pien€ma % ēf(l-, Vards, uzvards iedBBSeea Datums a 4 oy Paraksts CienijamaissadarbibaspartnerilInformejam, kaparapmaksaskavajumupecdokumentanoraditaterminanakogais darijumstiksslgtsp€cavansamaksajuma sanemSanas. Lappuselno1",
+    "corrected_entities": [
+      {
+        "text": "2025-05-07",
+        "label": "DATE",
+        "field": "invoice_date"
+      }
+    ],
+    "timestamp": "2025-08-03T13:30:42.102985",
+    "supplier_name": null,
+    "invoice_type": "TIM_T"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Liepājas Pētertirgus",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203588920",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "1225/25",
+        "label": "INVOICE_NUMBER",
+        "field": "invoice_number"
+      },
+      {
+        "text": "175.7",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "21",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-04T06:41:00.452266",
+    "supplier_name": "Liepājas Pētertirgus",
+    "invoice_type": "PETERSTIRGUS"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Liepājas Pētertirgus",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203588920",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "1225/25",
+        "label": "INVOICE_NUMBER",
+        "field": "invoice_number"
+      },
+      {
+        "text": "175.7",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "21",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-04T06:41:42.389123",
+    "supplier_name": "Liepājas Pētertirgus",
+    "invoice_type": "PETERSTIRGUS"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Liepājas Pētertirgus",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203588920",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "1225/25",
+        "label": "INVOICE_NUMBER",
+        "field": "invoice_number"
+      },
+      {
+        "text": "175.7",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "21",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-04T16:04:15.509363",
+    "supplier_name": "Liepājas Pētertirgus",
+    "invoice_type": "PETERSTIRGUS"
+  },
+  {
+    "original_text": "Baa -. m4 roplstracljas nv, 40003316720 anal wbm 110720 Liepajas SIA pynreg. nr. LVAGOoS. paj Petertirgus juridishd adreseKurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+    "corrected_entities": [
+      {
+        "text": "Liepājas Pētertirgus",
+        "label": "SUPPLIER",
+        "field": "supplier_name"
+      },
+      {
+        "text": "40003316720",
+        "label": "REG_NUMBER",
+        "field": "supplier_reg_number"
+      },
+      {
+        "text": "40203588920",
+        "label": "RECIPIENT_REG_NUMBER",
+        "field": "recipient_reg_number"
+      },
+      {
+        "text": "1225/25",
+        "label": "INVOICE_NUMBER",
+        "field": "invoice_number"
+      },
+      {
+        "text": "175.7",
+        "label": "AMOUNT",
+        "field": "total_amount"
+      },
+      {
+        "text": "21",
+        "label": "VAT_AMOUNT",
+        "field": "vat_amount"
+      },
+      {
+        "text": "2025-03-31",
+        "label": "DATE",
+        "field": "invoice_date"
+      },
+      {
+        "text": "Kurkutela5, Liepāja, 1V-3101 ) o-pasts gnmmtvw/llm((n, /wlvrllrgu. v, lv 44 th A ASSEB banka. ae i UNLALV2X a LV48UNI. 40012006467299 rt LV27HABAoSS1016936895 W RĒĶINS 2025. gada31. marts Nr. 1225/25 bi Precu/pakalpojumu saņēmējs Ž Latvijascalis, SIA Reg. nr. 40203588920 Banka Swedbank A/S PVNkods kodsHABALV22 a JuridiskaadreseCaunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "ADDRESS",
+        "field": "supplier_address"
+      },
+      {
+        "text": "Caunuiela1 0, Liepaja, LV-3401 konts LV34HABA0551 058795955 4 Pakalpojumusniegsanas adreseCaunuiela10, Liepaja, L V-3401 PakalpojumusniegSanas periods/2025. gadamarts Saimnieciskadarijumaveids Pakalpojumasniegsana Apmaksatlidz 20. 04. 2025. , Parelektroenergiju P-2/12-131. 00-men. 84. 97 84. 97 84. 97 8 Parelektroenergiju P-2/12-13kopl. 1. 00men. 3. 24 3. 24 3. 24 m Parelektroenergiju Psaldetava3300. 00kw 0. 19 0. 19 57. 00 3 SummabezPVN 145. 21. Dokumentaatlaide 0. 00 KopabezPVN 145. 21 al Gram. reg. Nr. 25-0003062 PVN21% 21. 0% 30. 49 D2310K61200 145. 21 i D2310K5721030. 49 3 me KopaapmaksaiEUR 175. 70 DuikyoWRNO SummavardiemVienssimts septindesmitpiecieuroun 70centi k Saskanaamomaslig. par elektroenergiju Rekinusagatavoja va Tel, 63423517 a E-pasts. gramatvediba(Opetertirgus. lv 1 Rēķinssagatavotselektroniskiun derigsbezparakstasaskandarlikumuGramatvedibaslikums 11. p. 8. d. Š",
+        "label": "RECIPIENT_ADDRESS",
+        "field": "recipient_address"
+      }
+    ],
+    "timestamp": "2025-08-04T21:00:15.353286",
+    "supplier_name": "Liepājas Pētertirgus",
+    "invoice_type": "PETERSTIRGUS"
+  }
+]

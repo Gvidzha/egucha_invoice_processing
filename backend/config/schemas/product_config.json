@@ -1,0 +1,149 @@
+{
+  "product_fields": {
+    "version": "1.0",
+    "base_fields": [
+      {
+        "name": "product_name",
+        "type": "string",
+        "required": true,
+        "description": "Product name or description",
+        "latvian": "produkta_nosaukums"
+      },
+      {
+        "name": "quantity",
+        "type": "number",
+        "required": true,
+        "description": "Product quantity",
+        "latvian": "daudzums"
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "required": false,
+        "description": "Unit of measurement (kg, pcs, etc.)",
+        "latvian": "mervieniba"
+      },
+      {
+        "name": "unit_price",
+        "type": "number",
+        "required": true,
+        "description": "Price per unit",
+        "latvian": "vienibas_cena"
+      },
+      {
+        "name": "total_price",
+        "type": "number",
+        "required": true,
+        "description": "Total price for this product",
+        "latvian": "kopsumma"
+      }
+    ],
+    "optional_fields": [
+      {
+        "name": "discount",
+        "type": "number",
+        "required": false,
+        "description": "Discount amount or percentage",
+        "latvian": "atlaide"
+      },
+      {
+        "name": "vat_rate",
+        "type": "number",
+        "required": false,
+        "description": "VAT rate percentage",
+        "latvian": "pvn_likme"
+      },
+      {
+        "name": "vat_amount",
+        "type": "number",
+        "required": false,
+        "description": "VAT amount",
+        "latvian": "pvn_summa"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "Additional product description",
+        "latvian": "apraksts"
+      },
+      {
+        "name": "product_code",
+        "type": "string",
+        "required": false,
+        "description": "Product code or SKU",
+        "latvian": "produkta_kods"
+      }
+    ],
+    "document_specific": {
+      "invoice": [
+        {
+          "name": "warranty_period",
+          "type": "string",
+          "required": false,
+          "description": "Warranty period",
+          "latvian": "garantijas_periods"
+        },
+        {
+          "name": "serial_number",
+          "type": "string",
+          "required": false,
+          "description": "Product serial number",
+          "latvian": "serijas_numurs"
+        }
+      ],
+      "receipt": [
+        {
+          "name": "barcode",
+          "type": "string",
+          "required": false,
+          "description": "Product barcode",
+          "latvian": "svitrkods"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "description": "Product category",
+          "latvian": "kategorija"
+        }
+      ],
+      "delivery_note": [
+        {
+          "name": "weight",
+          "type": "number",
+          "required": false,
+          "description": "Product weight",
+          "latvian": "svars"
+        },
+        {
+          "name": "packaging",
+          "type": "string",
+          "required": false,
+          "description": "Packaging type",
+          "latvian": "iepakojums"
+        },
+        {
+          "name": "volume",
+          "type": "number",
+          "required": false,
+          "description": "Product volume",
+          "latvian": "tilpums"
+        }
+      ]
+    },
+    "extraction_patterns": {
+      "table_indicators": [
+        "Nr.", "Nosaukums", "Daudzums", "Cena", "Summa",
+        "No.", "Name", "Quantity", "Price", "Total",
+        "Pozīcija", "Prece", "Skaits", "Vienības cena"
+      ],
+      "quantity_patterns": [
+        "daudzums", "skaits", "qty", "quantity", "pieces", "pcs"
+      ],
+      "price_patterns": [
+        "cena", "price", "summa", "total", "cost", "amount"
+      ]
+    }
+  }
+}

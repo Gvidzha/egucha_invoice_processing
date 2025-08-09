@@ -1,0 +1,249 @@
+Sveiks!
+
+Palaišana backend 
+    python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+Palaišana frontend
+    npm run dev
+
+
+sākam jaunu projektu un sarunajamies latviski!
+Projekta būtība!
+Nolasīt nos ieskanētiem vai fotogrāfētiem materiāliem - pavadzīmēm datus, atpazīt ienakošās pavadzīmes piegādātāju, visu produktu rindu kas ir atzīmēta pavadzīmē, papildus noteikt izrakstīšanas datumu un saņemšanas datumu! Šo visu informāciju izveidot priekšskatījumā, kur var labot kļūdas ja tadas ir radušās ocr rezultatā, kā arī izlabotās klūdas automatiski tiek pievienotas kļudu vardnīcā, līdz ar to mazinot nākotnes kļūdu skaitu!
+Kādus iespējamos variantus tu piedāvā, pagaidam runājam bez koda piemēriem, galvenais saprast struktūru, lai nebūtu darba laikā jamaina struktūra!
+
+GitHub Copilot: Sveiks! Lieliski, ka sākam jaunu projektu! 
+
+Tātad mums ir nepieciešams izveidot sistēmu pavadzīmju apstrādei ar OCR. Ļauj man analizēt prasības un piedāvāt strukturālu risinājumu:
+
+## Galvenās komponentes:
+
+### 1. **Attēlu apstrāde un OCR**
+# app/services/ocr_service.py pilnveidošana
+- Tesseract instalācija un konfigurācija
+- Image preprocessing (rotate, denoise, contrast)
+- Latviešu valodas OCR atbalsts
+- Text extraction un cleanup
+
+### 2. **Datu ekstraktēšana un atpazīšana**
+- **Piegādātāju atpazīšana**: Datubāze ar zināmiem piegādātājiem + fuzzy matching
+- **Produktu rindu parsēšana**: Regex patterns + ML klasifikācija
+- **Datumu ekstraktēšana**: Dažādu datumu formātu atpazīšana
+- **Strukturēta datu izvade**: JSON/XML formātā
+
+### 3. **Mašīnmācīšanās komponente**
+- Kļūdu vārdnīca (error dictionary)
+- Automātiska mācīšanās no labojumiem
+- Confidence scoring katram ekstraktētajam laukam
+
+### 4. **Lietotāja saskarne**
+- Priekšskatījuma logs ar rediģējamiem laukiem
+- Ērta kļūdu labošanas funkcionalitāte
+- Batch apstrādes iespējas
+
+## Ieteiktā arhitektūra:
+
+```
+Frontend (Web/Desktop) 
+    ↓
+API Layer (REST/GraphQL)
+    ↓
+Business Logic Layer
+    ├── OCR Service
+    ├── Data Extraction Service  
+    ├── Learning Service
+    └── Validation Service
+    ↓
+Database Layer
+    ├── Invoice Data
+    ├── Suppliers Database
+    ├── Products Database
+    └── Error Dictionary
+```
+
+## Tehnoloģiju ieteikumi:
+
+**Pamattehnoloģijas:**
+- Python (OCR, ML, backend)
+- PostgreSQL/MongoDB (datu glabāšana)
+- React/Vue.js (frontend) vai Electron (desktop app)
+
+**OCR un ML:**
+- Tesseract OCR
+- OpenCV (attēlu apstrāde)
+- spaCy/NLTK (teksta apstrāde)
+- scikit-learn (klasifikācija)
+
+Vai šāda struktūra atbilst tavām iecerēm? Kādas ir prioritātes - web aplikācija vai desktop risinājums?
+
+Gvidzha: es domāju web, ar iespēju pēc kāda laika pievienot Desctop! vai tas būs iespējams?
+
+GitHub Copilot: Jā, noteikti! Šāda pieeja ir ļoti izplatīta un praktiska. Iesāksim ar web risinājumu, bet uzreiz plānosim arhitektūru tā, lai vēlāk varētu viegli pievienot desktop aplikāciju.
+
+## Arhitektūras plāns progresīvai attīstībai:
+
+### **1. fāze - Web aplikācija**
+```
+React/Vue.js Frontend (Web)
+    ↓
+REST API (FastAPI/Flask)
+    ↓
+Shared Business Logic
+    ↓
+Database Layer
+```
+
+### **2. fāze - Desktop pievienošana**
+```
+React/Vue.js (Web) + Electron (Desktop)
+    ↓
+Same REST API
+    ↓
+Same Business Logic
+    ↓
+Same Database
+```
+
+## Priekšrocības šādai pieejai:
+
+**Koplietotā loģika:**
+- OCR serviss
+- Datu ekstraktēšanas algoritmi
+- Mašīnmācīšanās komponentes
+- Datubāzes struktūra
+
+**Desktop papildu iespējas:**
+- Lokāla failu apstrāde
+- Offline režīms
+- Sistēmas integrācija (drag & drop)
+- Ātrāka darbība ar lieliem failiem
+
+## Tehniskā realizācija:
+
+**Web versija:**
+- Frontend: React + TypeScript
+- Backend: Python FastAPI
+- Failu uploads caur web interface
+
+**Desktop versija (vēlāk):**
+- Electron wrapper ap esošo React frontend
+- Papildu native funkcionalitāte
+- Lokāls API proxy
+
+**Koplietotais backend:**
+- Vienots API visām platformām
+- Mikroservisu arhitektūra
+- Docker konteineri vieglai izvietošanai
+
+Vai sāksim ar web versiju? Kāda ir plānotā pavadzīmju apjoms dienā/mēnesī? Tas ietekmēs servera resursus un arhitektūras izvēli.
+
+Gvidzha: Aptuvenais skaits pavadzīmes augstākajā momentā vajadzētu reiķinat vismaz 10 000 vienlaicīgi, tas ir pagaidam ar yapasu!
+
+GitHub Copilot: Aha, 10 000 pavadzīmes vienlaicīgi - tas ir nopietns apjoms! Šeit nepieciešama skalējama arhitektūra ar asinhronās apstrādes iespējām.
+
+## Pārskatīta arhitektūra lieliem apjomiem:
+
+### **Mikroservisu struktūra:**
+
+```
+Load Balancer (Nginx/HAProxy)
+    ↓
+Web Frontend (React)
+    ↓
+API Gateway (FastAPI)
+    ↓
+┌─────────────────────────────────────┐
+│   Asinhronais Processing Layer      │
+├─────────────────────────────────────┤
+│ ● Queue System (Redis/RabbitMQ)     │
+│ ● Worker Nodes (Celery/RQ)          │
+│ ● File Storage (MinIO/AWS S3)       │
+│ ● OCR Processing Pool               │
+└─────────────────────────────────────┘
+    ↓
+Database Cluster (PostgreSQL)
+```
+
+### **Apstrādes plūsma:**
+
+1. **Upload** → Faili tiek augšupielādēti paralēli
+2. **Queue** → Katrs fails tiek ievietots apstrādes rindā
+3. **Processing** → Vairāki worker procesi apstrādā paralēli
+4. **Results** → Real-time progress updates caur WebSocket
+5. **Review** → Batch priekšskatījums un labošana
+
+### **Skalēšanas stratēģija:**
+
+**Horizontālā skalēšana:**
+- OCR worker nodi var pievienot pēc pieprasījuma
+- Database sharding pēc datumiem/klientiem
+- CDN priekš failu glabāšanas
+
+**Optimizācijas:**
+- GPU paātrināts OCR (CUDA)
+- Batch processing 50-100 faili reizē
+- Kešošana bieži lietotiem piegādātājiem
+
+**Resursu novērtējums 10k failiem:**
+- ~8-16 CPU cores OCR apstrādei
+- ~32-64 GB RAM
+- ~1-2 TB storage pavadzīmju glabāšanai
+- Redis cluster queue managementam
+
+Vai plāno host-ot paši vai izmantot cloud risinājumu (AWS/Azure/GCP)? Tas ietekmēs konkrēto tehnoloģiju izvēli un izmaksas.
+
+Gvidzha: Plānoju Hostot pats uz sava linux servera!
+
+GitHub Copilot: Lieliski! Self-hosted risinājums uz Linux servera dod pilnu kontroli un izmaksu efektivitāti. Ļauj plānot konkrētu Linux servera arhitektūru:
+
+## Linux servera arhitektūra:
+
+### **Pamata tehniskā specifikācija (10k pavadzīmēm):**
+```
+CPU: 16-32 cores (AMD Epyc/Intel Xeon)
+RAM: 64-128 GB DDR4
+Storage: 2-4 TB NVMe SSD + HDD backup
+Network: 1 Gbps+ savienojums
+OS: Ubuntu 22.04 LTS / CentOS Stream
+```
+
+### **Docker konteineru struktūra:**
+
+```yaml
+# docker-compose.yml struktūra
+services:
+  nginx:          # Reverse proxy + load balancer
+  redis:          # Queue & cache
+  postgresql:     # Galvenā DB
+  minio:          # File storage (S3 compatible)
+  
+  api-gateway:    # FastAPI main API
+  ocr-worker-1:   # OCR processing workers
+  ocr-worker-2:   # (scalable instances)
+  ocr-worker-N:   
+  
+  frontend:       # React build
+  monitoring:     # Prometheus + Grafana
+```
+
+### **Sistēmas optimizācijas:**
+
+**OCR Performance:**
+- Tesseract kompilēts ar OpenMP
+- ImageMagick priekš preprocessing
+- Parallel processing ar multiprocessing
+- SSD temp directory OCR failiem
+
+**Database optimizācijas:**
+- PostgreSQL connection pooling
+- Read replicas heavy load laikā
+- Partitioning by date
+- Proper indexing
+
+**Monitoring & Backup:**
+- Real-time system monitoring
+- Automated backups (rsync/borgbackup)
+- Log rotation un centralizēta logging
+- Health checks visiem servisiem
+
+Vai ir pieejama konkrēta servera specifikācija? Un cik liels budžets hardware? Tas palīdzēs precizēt optimālo konfigurāciju un plānot deployment stratēģiju.

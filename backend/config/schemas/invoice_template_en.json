@@ -1,0 +1,280 @@
+{
+  "template_name": "Latvia Invoice Template (English)",
+  "language": "en",
+  "original_template": "invoice_template.json",
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-01-01",
+    "description": "Latvian invoice field definitions with English field names"
+  },
+  "fields": {
+    "document": {
+      "document_type": {
+        "type": "string",
+        "required": true,
+        "description": "Document type",
+        "lv_name": "dok_tips"
+      },
+      "document_series": {
+        "type": "string",
+        "description": "Document series",
+        "lv_name": "dok_serija"
+      },
+      "document_number": {
+        "type": "string",
+        "required": true,
+        "description": "Document number",
+        "lv_name": "dok_nr"
+      },
+      "delivery_date": {
+        "type": "date",
+        "description": "Delivery date",
+        "lv_name": "dok_piegades_datums"
+      },
+      "service_delivery_date": {
+        "type": "date",
+        "description": "Service delivery date",
+        "lv_name": "pakalpojuma_piegades_datums"
+      },
+      "contract_number": {
+        "type": "string",
+        "description": "Contract number",
+        "lv_name": "liguma_nr"
+      }
+    },
+    "supplier": {
+      "supplier_name": {
+        "type": "string",
+        "required": true,
+        "description": "Supplier name",
+        "lv_name": "piegadatajs"
+      },
+      "supplier_vat_payer_number": {
+        "type": "string",
+        "description": "Supplier VAT payer number",
+        "lv_name": "piegadataja_pvd_nr"
+      },
+      "supplier_vat_number": {
+        "type": "string",
+        "description": "Supplier VAT number",
+        "lv_name": "piegadataja_pvn"
+      },
+      "supplier_reg_number": {
+        "type": "string",
+        "description": "Supplier registration number",
+        "lv_name": "piegadataja_reg_nr"
+      },
+      "supplier_legal_address": {
+        "type": "string",
+        "description": "Supplier legal address",
+        "lv_name": "piegadataja_jur_adrese"
+      },
+      "issue_address": {
+        "type": "string",
+        "description": "Issue address",
+        "lv_name": "izsniegsanas_adrese"
+      },
+      "supplier_account_number": {
+        "type": "string",
+        "description": "Supplier account number",
+        "lv_name": "piegadataja_konts"
+      },
+      "supplier_banks": {
+        "type": "array",
+        "items": {
+          "supplier_bank_name": {
+            "type": "string",
+            "description": "Bank name",
+            "lv_name": "piegadataja_banka"
+          },
+          "supplier_account_number": {
+            "type": "string",
+            "description": "Account number",
+            "lv_name": "piegadataja_konts"
+          },
+          "supplier_swift_code": {
+            "type": "string",
+            "description": "SWIFT code",
+            "lv_name": "piegadataja_swift"
+          }
+        }
+      }
+    },
+    "recipient": {
+      "recipient_name": {
+        "type": "string",
+        "required": true,
+        "description": "Recipient name",
+        "lv_name": "sanemejs"
+      },
+      "recipient_vat_number": {
+        "type": "string",
+        "description": "Recipient VAT number",
+        "lv_name": "sanemeja_pvn"
+      },
+      "recipient_reg_number": {
+        "type": "string",
+        "description": "Recipient registration number",
+        "lv_name": "sanemeja_reg_nr"
+      },
+      "recipient_bank_name": {
+        "type": "string",
+        "description": "Recipient bank name",
+        "lv_name": "sanemeja_banka"
+      },
+      "recipient_account_number": {
+        "type": "string",
+        "description": "Recipient account number",
+        "lv_name": "sanemeja_konts"
+      },
+      "recipient_swift_code": {
+        "type": "string",
+        "description": "Recipient SWIFT code",
+        "lv_name": "sanemeja_swift"
+      },
+      "recipient_legal_address": {
+        "type": "string",
+        "description": "Recipient legal address",
+        "lv_name": "sanemeja_jur_adrese"
+      },
+      "receiving_address": {
+        "type": "string",
+        "description": "Receiving address",
+        "lv_name": "sanemsanas_adrese"
+      }
+    },
+    "transport": {
+      "carrier_name": {
+        "type": "string",
+        "description": "Carrier name",
+        "lv_name": "parvadatajs"
+      },
+      "carrier_vat_number": {
+        "type": "string",
+        "description": "Carrier VAT number",
+        "lv_name": "parvadataja_pvn"
+      },
+      "vehicle_number": {
+        "type": "string",
+        "description": "Vehicle number",
+        "lv_name": "trans_lidz_nr"
+      },
+      "driver_name": {
+        "type": "string",
+        "description": "Driver name",
+        "lv_name": "auto_vaditajs"
+      }
+    },
+    "financial": {
+      "currency": {
+        "type": "string",
+        "default": "EUR",
+        "description": "Currency",
+        "lv_name": "curency"
+      },
+      "discount": {
+        "type": "decimal",
+        "description": "Discount",
+        "lv_name": "atlaide"
+      },
+      "total_with_discount": {
+        "type": "decimal",
+        "description": "Total with discount",
+        "lv_name": "kopa_ar_atlaidi"
+      },
+      "amount_with_discount": {
+        "type": "decimal",
+        "description": "Amount with discount",
+        "lv_name": "summa_ar_atlaidi"
+      },
+      "amount_without_discount": {
+        "type": "decimal",
+        "description": "Amount without discount",
+        "lv_name": "summa_bez_atlaides"
+      },
+      "amount_without_vat": {
+        "type": "decimal",
+        "description": "Amount without VAT",
+        "lv_name": "summa_bez_pvn"
+      },
+      "vat_amount": {
+        "type": "decimal",
+        "description": "VAT amount",
+        "lv_name": "pvn_summa"
+      },
+      "total_amount": {
+        "type": "decimal",
+        "required": true,
+        "description": "Total amount to pay",
+        "lv_name": "kopa_apmaksai"
+      }
+    },
+    "other": {
+      "transaction_type": {
+        "type": "string",
+        "description": "Transaction type",
+        "lv_name": "darijums"
+      },
+      "service_period": {
+        "type": "string",
+        "description": "Service period",
+        "lv_name": "pakalpojuma_periods"
+      },
+      "payment_method": {
+        "type": "string",
+        "description": "Payment method",
+        "lv_name": "apmaksas_veids"
+      },
+      "notes": {
+        "type": "text",
+        "description": "Notes",
+        "lv_name": "piezimes"
+      },
+      "issued_by_name": {
+        "type": "string",
+        "description": "Issued by (name, surname)",
+        "lv_name": "izsniedza_vards_uzvards"
+      },
+      "invoice_date": {
+        "type": "date",
+        "description": "Invoice date",
+        "lv_name": "izrakstisanas_datums"
+      },
+      "payment_due_date": {
+        "type": "date",
+        "description": "Payment due date",
+        "lv_name": "apmaksat_lidz"
+      },
+      "justification": {
+        "type": "string",
+        "description": "Justification",
+        "lv_name": "pamatojums"
+      },
+      "total_issued": {
+        "type": "string",
+        "description": "Total issued",
+        "lv_name": "kopa_izsniegts"
+      },
+      "weight_kg": {
+        "type": "decimal",
+        "description": "Weight (kg)",
+        "lv_name": "svars_kg"
+      },
+      "issued_by": {
+        "type": "string",
+        "description": "Issued by",
+        "lv_name": "izsniedza"
+      },
+      "total_quantity": {
+        "type": "decimal",
+        "description": "Total quantity",
+        "lv_name": "daudzums_kopa"
+      },
+      "page_number": {
+        "type": "integer",
+        "description": "Page number",
+        "lv_name": "lapa"
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "validation_rules": {
+    "dok_nr": {
+      "min_length": 1,
+      "max_length": 50,
+      "pattern": "^[A-Z0-9\\-/]+$",
+      "required": true,
+      "error_messages": {
+        "required": "Dokumenta numurs ir obligāts",
+        "pattern": "Dokumenta numurs drīkst saturēt tikai burtus, ciparus, defises un slīpsvītras",
+        "min_length": "Dokumenta numurs nedrīkst būt tukšs",
+        "max_length": "Dokumenta numurs nedrīkst pārsniegt 50 simbolus"
+      }
+    },
+    "piegadatajs": {
+      "min_length": 2,
+      "max_length": 200,
+      "required": true,
+      "forbidden_patterns": ["[0-9]{11,}", "test", "TEST"],
+      "error_messages": {
+        "required": "Piegādātāja nosaukums ir obligāts",
+        "min_length": "Piegādātāja nosaukums ir pārāk īss",
+        "max_length": "Piegādātāja nosaukums ir pārāk garš",
+        "forbidden_patterns": "Piegādātāja nosaukums satur nederīgas vērtības"
+      }
+    },
+    "piegadataja_reg_nr": {
+      "pattern": "^[0-9]{11}$",
+      "min_length": 11,
+      "max_length": 11,
+      "error_messages": {
+        "pattern": "Reģistrācijas numurs jāsatur tieši 11 cipari",
+        "min_length": "Reģistrācijas numurs ir pārāk īss",
+        "max_length": "Reģistrācijas numurs ir pārāk garš"
+      }
+    },
+    "piegadataja_pvn": {
+      "pattern": "^LV[0-9]{11}$",
+      "min_length": 13,
+      "max_length": 13,
+      "error_messages": {
+        "pattern": "PVN numurs jāsākas ar 'LV' un jāsatur 11 cipari",
+        "min_length": "PVN numurs ir pārāk īss",
+        "max_length": "PVN numurs ir pārāk garš"
+      }
+    },
+    "sanemejs": {
+      "min_length": 2,
+      "max_length": 200,
+      "required": true,
+      "error_messages": {
+        "required": "Saņēmēja nosaukums ir obligāts",
+        "min_length": "Saņēmēja nosaukums ir pārāk īss",
+        "max_length": "Saņēmēja nosaukums ir pārāk garš"
+      }
+    },
+    "kopa_apmaksai": {
+      "type": "decimal",
+      "min_value": 0,
+      "max_value": 999999.99,
+      "decimal_places": 2,
+      "required": true,
+      "error_messages": {
+        "required": "Kopējā summa ir obligāta",
+        "type": "Kopējā summa jābūt skaitlim",
+        "min_value": "Kopējā summa nedrīkst būt negatīva",
+        "max_value": "Kopējā summa ir pārāk liela",
+        "decimal_places": "Kopējā summa nedrīkst būt precīzāka par 2 decimālzīmēm"
+      }
+    },
+    "pvn_summa": {
+      "type": "decimal",
+      "min_value": 0,
+      "max_value": 999999.99,
+      "decimal_places": 2,
+      "error_messages": {
+        "type": "PVN summa jābūt skaitlim",
+        "min_value": "PVN summa nedrīkst būt negatīva",
+        "max_value": "PVN summa ir pārāk liela",
+        "decimal_places": "PVN summa nedrīkst būt precīzāka par 2 decimālzīmēm"
+      }
+    },
+    "izrakstisanas_datums": {
+      "type": "date",
+      "min_date": "2000-01-01",
+      "max_date": "2030-12-31",
+      "formats": ["YYYY-MM-DD", "DD.MM.YYYY", "DD/MM/YYYY"],
+      "required": false,
+      "error_messages": {
+        "type": "Datums nav pareizā formātā",
+        "min_date": "Datums nedrīkst būt pirms 2000. gada",
+        "max_date": "Datums nedrīkst būt pēc 2030. gada",
+        "formats": "Atbalstītie datuma formāti: YYYY-MM-DD, DD.MM.YYYY, DD/MM/YYYY"
+      }
+    },
+    "dok_piegades_datums": {
+      "type": "date",
+      "min_date": "2000-01-01",
+      "max_date": "2030-12-31",
+      "formats": ["YYYY-MM-DD", "DD.MM.YYYY", "DD/MM/YYYY"],
+      "error_messages": {
+        "type": "Piegādes datums nav pareizā formātā",
+        "min_date": "Piegādes datums nedrīkst būt pirms 2000. gada",
+        "max_date": "Piegādes datums nedrīkst būt pēc 2030. gada"
+      }
+    },
+    "curency": {
+      "allowed_values": ["EUR", "USD", "GBP", "LVL"],
+      "default": "EUR",
+      "pattern": "^[A-Z]{3}$",
+      "error_messages": {
+        "allowed_values": "Atbalstītās valūtas: EUR, USD, GBP, LVL",
+        "pattern": "Valūtas kods jāsatur tieši 3 lielajiem burtiem"
+      }
+    },
+    "products": {
+      "type": "array",
+      "min_items": 0,
+      "max_items": 100,
+      "item_validation": {
+        "prece": {
+          "min_length": 1,
+          "max_length": 300,
+          "required": true,
+          "error_messages": {
+            "required": "Preces nosaukums ir obligāts",
+            "min_length": "Preces nosaukums nedrīkst būt tukšs",
+            "max_length": "Preces nosaukums ir pārāk garš"
+          }
+        },
+        "daudzums": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.999,
+          "decimal_places": 3,
+          "required": true,
+          "error_messages": {
+            "required": "Daudzums ir obligāts",
+            "type": "Daudzums jābūt skaitlim",
+            "min_value": "Daudzums nedrīkst būt negatīvs",
+            "max_value": "Daudzums ir pārāk liels"
+          }
+        },
+        "cena": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.99,
+          "decimal_places": 2,
+          "required": true,
+          "error_messages": {
+            "required": "Cena ir obligāta",
+            "type": "Cena jābūt skaitlim",
+            "min_value": "Cena nedrīkst būt negatīva",
+            "max_value": "Cena ir pārāk liela"
+          }
+        },
+        "summa": {
+          "type": "decimal",
+          "min_value": 0,
+          "max_value": 999999.99,
+          "decimal_places": 2,
+          "required": true,
+          "validation_logic": "summa_should_equal_daudzums_times_cena",
+          "error_messages": {
+            "required": "Summa ir obligāta",
+            "type": "Summa jābūt skaitlim",
+            "min_value": "Summa nedrīkst būt negatīva",
+            "max_value": "Summa ir pārāk liela",
+            "validation_logic": "Summa nesakrīt ar daudzums × cena"
+          }
+        }
+      },
+      "error_messages": {
+        "type": "Produktu saraksts jābūt masīvam",
+        "min_items": "Jābūt vismaz vienam produktam",
+        "max_items": "Nedrīkst būt vairāk par 100 produktiem"
+      }
+    }
+  },
+  "cross_field_validation": {
+    "pvn_calculation": {
+      "description": "Pārbauda vai PVN summa ir pareiza",
+      "fields": ["summa_bez_pvn", "pvn_summa", "kopa_apmaksai"],
+      "logic": "kopa_apmaksai should equal summa_bez_pvn + pvn_summa",
+      "tolerance": 0.01,
+      "error_message": "PVN aprēķins nav pareizs: Kopā apmaksai ≠ Summa bez PVN + PVN summa"
+    },
+    "date_consistency": {
+      "description": "Pārbauda datumu konsistenci",
+      "fields": ["izrakstisanas_datums", "dok_piegades_datums"],
+      "logic": "dok_piegades_datums should be >= izrakstisanas_datums",
+      "error_message": "Piegādes datums nedrīkst būt pirms izrakstīšanas datuma"
+    },
+    "supplier_recipient_different": {
+      "description": "Pārbauda vai piegādātājs un saņēmējs nav vienādi",
+      "fields": ["piegadatajs", "sanemejs"],
+      "logic": "fields should not be equal",
+      "error_message": "Piegādātājs un saņēmējs nedrīkst būt vienādi"
+    }
+  },
+  "confidence_thresholds": {
+    "high_confidence": 0.9,
+    "medium_confidence": 0.7,
+    "low_confidence": 0.5,
+    "reject_threshold": 0.3,
+    "field_specific": {
+      "dok_nr": {
+        "high": 0.95,
+        "medium": 0.8,
+        "low": 0.6
+      },
+      "kopa_apmaksai": {
+        "high": 0.9,
+        "medium": 0.75,
+        "low": 0.6
+      }
+    }
+  },
+  "auto_correction_rules": {
+    "enabled": true,
+    "rules": {
+      "trim_whitespace": {
+        "applies_to": ["all_text_fields"],
+        "description": "Noņem liekas atstarpes"
+      },
+      "normalize_currency": {
+        "applies_to": ["curency"],
+        "mappings": {
+          "eur": "EUR",
+          "euro": "EUR",
+          "€": "EUR",
+          "lats": "LVL",
+          "ls": "LVL"
+        }
+      },
+      "normalize_company_names": {
+        "applies_to": ["piegadatajs", "sanemejs"],
+        "rules": [
+          "Remove quotes around company names",
+          "Normalize SIA/AS prefixes",
+          "Fix common OCR mistakes in company suffixes"
+        ]
+      },
+      "format_registration_numbers": {
+        "applies_to": ["piegadataja_reg_nr", "sanemeja_reg_nr"],
+        "rules": [
+          "Remove non-numeric characters",
+          "Ensure exactly 11 digits"
+        ]
+      }
+    }
+  }
+}

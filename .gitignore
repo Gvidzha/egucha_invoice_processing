@@ -1,0 +1,44 @@
+# Ignore node_modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Virtual Environments - UNIFIED APPROACH
+.venv/
+venv/
+ENV/
+env/
+.env/
+backend/venv/  # Old backend venv should be ignored
+
+# Ignore uploaded files
+uploads/*
+!uploads/.gitkeep
+
+# Ignore database
+data/*.db
+data/*.sqlite
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore build files
+dist/
+build/
+*.egg-info/
+
+# Ignore logs
+*.log
+logs/
