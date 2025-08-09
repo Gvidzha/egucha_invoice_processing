@@ -68,6 +68,7 @@ export interface StatusResponse {
   document_type?: string;
   document_series?: string;
   invoice_number?: string;
+  document_number?: string;
   invoice_date?: string;
   delivery_date?: string;
   service_delivery_date?: string;
