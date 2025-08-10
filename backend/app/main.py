@@ -25,7 +25,11 @@ app = FastAPI(
 # CORS konfigurācija priekš frontend savienojuma
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://165.232.112.180"],  # Vite dev server
+    allow_origins=[
+        "http://165.232.112.180",
+        "http://localhost",
+        "http://localhost:8080"
+    ],  # Vite dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
