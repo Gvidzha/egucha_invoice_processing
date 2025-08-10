@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://gvidzha:supersecretpassword@db:5432/invoice_processing_complete
+      DATABASE_URL=postgresql://gvidzha:supersecretpassword@db:5432/invoice_processing_complete
     ports:
       - "8000:8000"
 
