@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { UploadResponse, ProcessResponse, StatusResponse, ResultsResponse } from '../types/invoice';
 
 // API bāzes URL
-const API_BASE = 'http://localhost:8000/api/v1';
+const API_BASE = 'http://165.232.112.180/api/v1';
 
 // Axios instance ar pamata konfigurāciju
 const api = axios.create({
