@@ -128,7 +128,7 @@ class OCRService:
                                     preprocess: bool = True,
                                     clean_text: bool = True,
                                     invoice_mode: bool = True) -> Dict[str, any]:
-        print(f"DEBUG start: processed_image_path={processed_image_path}")
+        
         """
         Ekstraktē tekstu no attēla faila
         
@@ -143,6 +143,7 @@ class OCRService:
         """
         start_time = time.time()
         processed_image_path = None
+        print(f"DEBUG start: processed_image_path={processed_image_path}")
 
         result = {
             'file_path': image_path,
