@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 import os
 
 # Importēt API maršrutus
-from app.api import upload, process, preview, history
+from app.api import upload, process, preview, history, products
 # Atkomentējam corrections un products API endpoints
 from app.api import corrections, products
 

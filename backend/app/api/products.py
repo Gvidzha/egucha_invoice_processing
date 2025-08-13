@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 logger = logging.getLogger(__name__)
 
 # Router
-router = APIRouter(prefix="/api/products", tags=["products"])
+router = APIRouter(tags=["products"])
 
 # Pydantic models
 class ProductItem(BaseModel):
