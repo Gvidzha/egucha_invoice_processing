@@ -142,7 +142,7 @@ class OCRService:
         """
         start_time = time.time()
         processed_image_path = None
-        
+
         result = {
             'file_path': image_path,
             'raw_text': '',
@@ -225,7 +225,7 @@ class OCRService:
         
         finally:
             # Iztīra temporary failus
-            if preprocess and processed_image_path != image_path:
+            if preprocess and processed_image_path and processed_image_path != image_path:
                 try:
                     self.image_preprocessor.cleanup_temp_files()
                 except Exception as e:
