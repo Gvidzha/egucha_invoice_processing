@@ -141,6 +141,7 @@ class OCRService:
             Dict: OCR rezultāts ar tekstu un metadatiem
         """
         start_time = time.time()
+        processed_image_path = None
         
         result = {
             'file_path': image_path,
