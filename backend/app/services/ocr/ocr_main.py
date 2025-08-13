@@ -128,6 +128,7 @@ class OCRService:
                                     preprocess: bool = True,
                                     clean_text: bool = True,
                                     invoice_mode: bool = True) -> Dict[str, any]:
+        print(f"DEBUG start: processed_image_path={processed_image_path}")
         """
         Ekstraktē tekstu no attēla faila
         
@@ -163,6 +164,7 @@ class OCRService:
             
             # Pārbauda faila eksistenci
             if not Path(image_path).exists():
+                print(f"DEBUG after if not preprocess: processed_image_path={processed_image_path}")
                 raise FileNotFoundError(f"Attēls nav atrasts: {image_path}")
             
             logger.info(f"Sāk OCR apstrādi: {image_path}")
@@ -170,6 +172,7 @@ class OCRService:
             # 1. Attēla priekšapstrāde (ja nepieciešams)
             processed_image_path = image_path
             if preprocess:
+                print(f"DEBUG after preprocess: processed_image_path={processed_image_path}")
                 if invoice_mode:
                     processed_image_path = self.image_preprocessor.preprocess_for_invoice(image_path)
                 else:
@@ -226,6 +229,7 @@ class OCRService:
         finally:
             # Iztīra temporary failus
             if preprocess and processed_image_path and processed_image_path != image_path:
+                print(f"DEBUG after preprocess: processed_image_path={processed_image_path}")
                 try:
                     self.image_preprocessor.cleanup_temp_files()
                 except Exception as e:
