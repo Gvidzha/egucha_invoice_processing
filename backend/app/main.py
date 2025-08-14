@@ -48,7 +48,7 @@ app.include_router(preview.router, prefix="/api/v1", tags=["preview"])
 app.include_router(history.router, prefix="/api/v1", tags=["history"])
 # Atkomentējam corrections un products API endpoints
 app.include_router(corrections.router, prefix="/api/v1", tags=["corrections"])
-app.include_router(products.router, prefix="/api/v1", tags=["products"])
+app.include_router(products.router, prefix="/api/v1/products", tags=["products"])
 
 @app.get("/")
 async def root():
