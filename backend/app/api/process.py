@@ -61,11 +61,11 @@ async def process_structure_aware_ocr(
     # Sāk structure-aware OCR background procesā
     background_tasks.add_task(process_structure_aware_ocr_background, file_id, str(file_path))
     
-    return {
+    return convert_int64({
         "message": "Structure-Aware OCR sākts",
         "file_id": file_id,
         "status": "processing"
-    }
+    })
 
 async def process_structure_aware_ocr_background(file_id: int, file_path: str):
     """
@@ -1018,11 +1018,11 @@ async def learn_from_corrections(
             # Fallback - vienkārši atjaunina datus
             await update_invoice_with_corrections(db, invoice, corrections)
             
-            return {
+            return convert_int64({
                 "status": "partial_success",
                 "message": "Dati atjaunināti, bet mācīšanās nav pilnībā veiksmīga",
                 "error": str(e)
-            }
+            })
             
     except HTTPException:
         raise
