@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from typing import Dict, Any
 import asyncio
 import logging
+import numpy as np
 from pathlib import Path
 from datetime import datetime
 
@@ -19,6 +20,15 @@ from app.services.hybrid_service import HybridExtractionService
 from app.services.document_structure_service import DocumentStructureAnalyzer
 from app.config import UPLOAD_DIR
 import json
+
+def convert_int64(obj):
+    if isinstance(obj, dict):
+        return {k: convert_int64(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_int64(i) for i in obj]
+    elif isinstance(obj, np.integer):
+        return int(obj)
+    return obj
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -714,7 +724,7 @@ async def get_processing_status(
     if invoice.status == "error" and invoice.error_message:
         response["error_message"] = invoice.error_message
     
-    return response
+    return convert_int64(response)
 
 @router.post("/process/batch")
 async def process_multiple_invoices(
