@@ -9,6 +9,7 @@ from typing import Dict, Any
 import asyncio
 import logging
 import numpy as np
+import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
@@ -28,6 +29,12 @@ def convert_int64(obj):
         return [convert_int64(i) for i in obj]
     elif isinstance(obj, np.integer):
         return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.bool_):
+        return bool(obj)
+    elif isinstance(obj, pd.Timestamp):
+        return obj.isoformat()
     return obj
 
 logger = logging.getLogger(__name__)
