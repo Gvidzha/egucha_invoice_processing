@@ -182,12 +182,12 @@ async def analyze_document_structure(
     
     logger.info(f"Structure analysis sākta failam: {invoice.original_filename} (ID: {file_id})")
     
-    return {
+    return convert_int64({
         "message": f"Structure analysis sākta failam: {invoice.original_filename}",
         "file_id": file_id,
         "filename": invoice.original_filename,
         "status": "structure_analysis_started"
-    }
+    })
 
 async def process_structure_analysis(file_id: int):
     """
@@ -333,18 +333,18 @@ async def get_learning_statistics():
         
         stats = await hybrid_service.get_extraction_statistics()
         
-        return {
+        return convert_int64({
             "status": "success",
             "statistics": stats
-        }
+        })
         
     except Exception as e:
         logger.error(f"Statistikas iegūšanas kļūda: {e}")
-        return {
+        return convert_int64({
             "status": "error",
             "message": "Nevar iegūt statistiku",
             "error": str(e)
-        }
+        })
 
 
 @router.get("/learning/export")
@@ -360,18 +360,18 @@ async def export_learning_data():
         
         export_data = await hybrid_service.export_learning_data()
         
-        return {
+        return convert_int64({
             "status": "success",
             "export_data": export_data
-        }
+        })
         
     except Exception as e:
         logger.error(f"Datu eksportēšanas kļūda: {e}")
-        return {
-            "status": "error", 
+        return convert_int64({
+            "status": "error",
             "message": "Nevar eksportēt datus",
             "error": str(e)
-        }
+        })
 
 
 async def process_invoice_ocr(file_id: int):
@@ -582,7 +582,7 @@ async def process_invoice(
         raise HTTPException(status_code=400, detail="Fails jau tiek apstrādāts")
     
     if invoice.status == "completed":
-        return {
+        return convert_int64({
             "message": "Fails jau ir apstrādāts",
             "file_id": file_id,
             "status": "already_completed",
@@ -590,7 +590,7 @@ async def process_invoice(
             "supplier_name": invoice.supplier_name,
             "total_amount": float(invoice.total_amount) if invoice.total_amount else None,
             "confidence_score": float(invoice.confidence_score) if invoice.confidence_score else None
-        }
+        })
     
     # Atjaunināt statusu uz "processing"
     invoice.status = "processing"
@@ -602,12 +602,12 @@ async def process_invoice(
     
     logger.info(f"Apstrāde sākta failam: {invoice.original_filename} (ID: {file_id})")
     
-    return {
+    return convert_int64({
         "message": f"Apstrāde sākta failam: {invoice.original_filename}",
         "file_id": file_id,
         "filename": invoice.original_filename,
         "status": "processing_started"
-    }
+    })
 
 @router.get("/process/{file_id}/status")
 async def get_processing_status(
@@ -747,11 +747,11 @@ async def process_multiple_invoices(
     # TODO: Sākt batch apstrādi
     # TODO: Atgriezt batch job ID
     
-    return {
+    return convert_int64({
         "message": f"Batch processing started for {len(file_ids)} files - TODO: implement",
         "file_ids": file_ids,
         "batch_id": "placeholder"
-    }
+    })
 
 @router.get("/process/{file_id}/structure")
 async def get_structure_analysis(
@@ -791,7 +791,7 @@ async def get_structure_analysis(
         logger.error(f"Failed to parse structure JSON for invoice {file_id}: {e}")
         raise HTTPException(status_code=500, detail="Structure data ir bojāta")
     
-    return {
+    return convert_int64({
         "file_id": file_id,
         "filename": invoice.original_filename,
         "structure_confidence": float(invoice.structure_confidence) if invoice.structure_confidence else None,
@@ -805,7 +805,7 @@ async def get_structure_analysis(
             "text_blocks_count": len(structure_data.get('text_blocks', [])) if structure_data else 0,
             "processing_time_ms": structure_data.get('processing_time_ms') if structure_data else None
         }
-    }
+    })
 
 @router.post("/process/{file_id}/retry")
 async def retry_processing(
@@ -853,12 +853,12 @@ async def retry_processing(
     
     logger.info(f"Atkārtota apstrāde sākta failam: {invoice.original_filename} (ID: {file_id})")
     
-    return {
+    return convert_int64({
         "message": f"Atkārtota apstrāde sākta failam: {invoice.original_filename}",
         "file_id": file_id,
         "filename": invoice.original_filename,
         "status": "retry_started"
-    }
+    })
 
 @router.get("/process/{file_id}/results")
 async def get_processing_results(
@@ -885,7 +885,7 @@ async def get_processing_results(
             detail=f"Apstrāde nav pabeigta. Pašreizējais statuss: {invoice.status}"
         )
     
-    return {
+    return convert_int64({
         "file_id": file_id,
         "filename": invoice.original_filename,
         "processing_info": {
@@ -909,7 +909,7 @@ async def get_processing_results(
             "bank_account": invoice.bank_account
         },
         "raw_ocr_text": invoice.extracted_text[:1000] + "..." if invoice.extracted_text and len(invoice.extracted_text) > 1000 else invoice.extracted_text
-    }
+    })
 
 async def save_product_lines(db: Session, invoice_id: int, products: list) -> None:
     """
@@ -1005,13 +1005,13 @@ async def learn_from_corrections(
             
             logger.info(f"Mācīšanās pabeigta: {learning_results}")
             
-            return {
+            return convert_int64({
                 "status": "success",
                 "message": "Mācīšanās no labojumiem veiksmīga",
                 "learning_results": learning_results,
                 "corrected_fields": list(corrections.keys()),
                 "improvements": learning_results.get("combined_improvements", 0)
-            }
+            })
             
         except Exception as e:
             logger.error(f"Hibridās mācīšanās kļūda: {e}")
@@ -1086,18 +1086,18 @@ async def get_learning_statistics():
         
         stats = await hybrid_service.get_extraction_statistics()
         
-        return {
+        return convert_int64({
             "status": "success",
             "statistics": stats
-        }
-        
+        })
+
     except Exception as e:
         logger.error(f"Statistikas iegūšanas kļūda: {e}")
-        return {
+        return convert_int64({
             "status": "error",
             "message": "Nevar iegūt statistiku",
             "error": str(e)
-        }
+        })
 
 
 @router.get("/learning/export")
@@ -1113,15 +1113,15 @@ async def export_learning_data():
         
         export_data = await hybrid_service.export_learning_data()
         
-        return {
+        return convert_int64({
             "status": "success",
             "export_data": export_data
-        }
-        
+        })
+
     except Exception as e:
         logger.error(f"Datu eksportēšanas kļūda: {e}")
-        return {
+        return convert_int64({
             "status": "error", 
             "message": "Nevar eksportēt datus",
             "error": str(e)
-        }
+        })
