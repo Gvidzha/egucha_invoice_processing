@@ -729,7 +729,7 @@ async def get_processing_status(
     # Pievienot kļūdas informāciju, ja ir
     if invoice.status == "error" and invoice.error_message:
         response["error_message"] = invoice.error_message
-    
+    logger.info(f"RESPONSE DATA: {response}")
     return convert_int64(response)
 
 @router.post("/process/batch")
