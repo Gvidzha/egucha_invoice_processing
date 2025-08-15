@@ -254,7 +254,7 @@ async def process_structure_analysis(file_id: int):
                     },
                     'confidence': table.confidence,
                     'cell_count': (
-                        len([cell for row in table.cells for cell in row])
+                        sum(len(row) if isinstance(row, list) else 1 for row in table.cells)
                         if isinstance(table.cells, list) else 1
                     )
                 } for table in structure_result.tables
