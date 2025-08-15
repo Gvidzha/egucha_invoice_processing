@@ -27,6 +27,10 @@ def convert_int64(obj):
         return {k: convert_int64(v) for k, v in obj.items()}
     elif isinstance(obj, list):
         return [convert_int64(i) for i in obj]
+    elif isinstance(obj, tuple):
+        return tuple(convert_int64(i) for i in obj)
+    elif isinstance(obj, set):
+        return [convert_int64(i) for i in obj]
     elif isinstance(obj, np.integer):
         return int(obj)
     elif isinstance(obj, np.floating):
