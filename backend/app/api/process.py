@@ -508,9 +508,9 @@ async def process_invoice_ocr(file_id: int):
                 'processing_time_ms': structure_result.processing_time_ms
             }
             
-            invoice.document_structure = json.dumps(structure_dict)
-            invoice.detected_zones = json.dumps(structure_dict['zones'])
-            invoice.table_regions = json.dumps(structure_dict['tables'])
+            invoice.document_structure = json.dumps(convert_int64(structure_dict))
+            invoice.detected_zones = json.dumps(convert_int64(structure_dict['zones']))
+            invoice.table_regions = json.dumps(convert_int64(structure_dict['tables']))
             invoice.structure_confidence = structure_result.confidence
             invoice.has_structure_analysis = True
             invoice.structure_analyzed_at = datetime.utcnow()
