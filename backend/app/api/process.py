@@ -21,6 +21,8 @@ from app.services.hybrid_service import HybridExtractionService
 from app.services.document_structure_service import DocumentStructureAnalyzer
 from app.config import UPLOAD_DIR
 import json
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 def convert_int64(obj):
     if isinstance(obj, dict):
