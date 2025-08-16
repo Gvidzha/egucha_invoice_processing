@@ -134,7 +134,7 @@ class Invoice(Base):
     processed_at = Column(DateTime)
     
     # Saites uz citām tabulām
-    # products = relationship("Product", back_populates="invoice")
+    products = relationship("Product", back_populates="invoice")
     # corrections = relationship("ErrorCorrection", back_populates="invoice")
     
     def __repr__(self):

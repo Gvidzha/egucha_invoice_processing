@@ -40,7 +40,7 @@ class Product(Base):
     raw_text = Column(Text)  # Oriģinālais teksts no OCR
     
     # Saite uz pavadzīmi
-    # invoice = relationship("Invoice", back_populates="products")
+    invoice = relationship("Invoice", back_populates="products")
     
     def __repr__(self):
         return f"<Product(id={self.id}, name='{self.name}', quantity={self.quantity}, price={self.total_price})>"
