@@ -11,7 +11,7 @@ from pathlib import Path
 # Pievienojam app moduli path
 sys.path.insert(0, '.')
 
-from app.services.ocr import OCRService
+from app.services.ocr.ocr_main import OCRService
 
 # Logging setup
 logging.basicConfig(
