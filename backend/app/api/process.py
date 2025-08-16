@@ -111,6 +111,9 @@ async def process_structure_aware_ocr_background(file_id: int, file_path: str):
                 invoice.structure_confidence = structure_result['confidence']
                 
                 # Saglabā struktūras informāciju
+                logger.debug(f"Serializējam structure: {structure_result['structure']}")
+                logger.debug(f"Serializējam zone_results: {structure_result['zone_results']}")
+                logger.debug(f"Serializējam table_results: {structure_result['table_results']}")
                 invoice.document_structure = json.dumps(structure_result['structure'])
                 invoice.detected_zones = json.dumps(structure_result['zone_results'])
                 invoice.table_regions = json.dumps(structure_result['table_results'])

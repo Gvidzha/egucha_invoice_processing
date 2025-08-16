@@ -10,12 +10,14 @@ Testē API process endpoints ar īsti      # 2. Sākt apstrādi
     print(f"\n⚙️ 2. Sākam apstrādi (ID: {file_id})...")
     response = requests.post(f"{API_BASE}/api/v1/process/{file_id}")failiem
 """
-
+import sys
+import os
 import asyncio
 import requests
 import time
 import json
 from pathlib import Path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 # API bāzes URL
 API_BASE = "http://localhost:8000"
