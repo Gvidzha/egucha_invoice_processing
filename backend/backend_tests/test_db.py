@@ -7,9 +7,7 @@ Palaidīt ar: python test_db.py
 import sys
 import os
 from pathlib import Path
-
-# Pievienot app ceļu
-sys.path.append(str(Path(__file__).parent / "app"))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from app.database import engine, create_tables, SessionLocal
 from app.models import Supplier, Invoice
