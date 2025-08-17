@@ -5,7 +5,21 @@ Satur datubāzes savienojumu, OCR iestatījumus un regex patterns
 
 import os
 from pathlib import Path
+import app
 from app.env_loader import load_env_file, get_env
+from app.regex_patterns.supplier_patterns import SUPPLIER_PATTERNS
+from app.regex_patterns.contract_number_patterns import CONTRACT_NUMBER_PATTERNS
+from app.regex_patterns.supplier_patterns import SUPPLIER_NAME
+from app.regex_patterns.supplier_patterns import SUPPLIER_VAT_NUMBER
+from app.regex_patterns.supplier_patterns import SUPPLIER_REGISTRATION_NUMBER
+from app.regex_patterns.invoice_number_patterns import INVOICE_NUMBER_PATTERNS
+from app.regex_patterns.date_patterns import DATE_PATTERNS
+from app.regex_patterns.date_patterns import DELIVERY_DATE_PATTERNS
+from app.regex_patterns.date_patterns import SERVICE_DELIVERY_DATE_PATTERNS
+from app.regex_patterns.document_type_patterns import DOCUMENT_TYPE_PATTERNS
+from app.regex_patterns.document_series_patterns import DOCUMENT_SERIES_PATTERNS
+from app.regex_patterns.document_number_patterns import DOCUMENT_NUMBER_PATTERNS
+
 
 # Ielādēt .env failu
 load_env_file()
@@ -89,61 +103,22 @@ PDF_CONFIG = {
 
 # Regex patterni datu ekstraktēšanai
 REGEX_PATTERNS = {
-    # Pavadzīmes numurs - uzlaboti patterni
-    "invoice_number": [
-        r"(?i)pavadz[īi]me\s+nr\.?\s*([A-Z0-9\-\/]+)",
-        r"(?i)invoice\s+no\.?\s*[\:\s]*([A-Z0-9\-\/]+)",
-        r"(?i)dokuments?\s+nr\.?\s*([A-Z0-9\-\/]+)",
-        r"(?i)nr\.?\s*([A-Z0-9]{2,}\/\d{2,4})",  # Format: 0715/25
-        r"(?i)pv\s+([A-Z0-9\-\/]+)",
-        r"(?i)re[kķ]ins?\s+nr\.?\s*([A-Z0-9\-\/]+)",
-        # Lindström specific - RēķinaNr. 71068107
-        r"(?i)r[eē][kķ]ina\s*nr\.?\s*([A-Z0-9\-\/]+)",
-        # Specifiski patterni no testiem
-        r"marts\s+Nr\.\s*([A-Z0-9\/\-]+)",
-        r"(\b[A-Z]{2,}\d{7,}\b)",  # VIS2508271 stils
-        r"(\b\d{8}\b)",  # 8-digit number like 71068107
-    ],
-    
+    "document_type": DOCUMENT_TYPE_PATTERNS,
+    "document_series": DOCUMENT_SERIES_PATTERNS,
+    "document_number": DOCUMENT_NUMBER_PATTERNS,
+    "delivery_date": DELIVERY_DATE_PATTERNS,
+    "service_delivery_date": SERVICE_DELIVERY_DATE_PATTERNS,
+    "contract_number": CONTRACT_NUMBER_PATTERNS,
     # Uzņēmuma nosaukums - uzlaboti patterni
-    "supplier": [
-        # Lindström specific patterns
-        r"(?i)lindstr[oō]m\s*SIA",
-        r"(?i)SIA\s*lindstr[oō]m",
-        r"(?i)lindstr[oō]m",
-        
-        # Specifiskie uzņēmumi (Liepājas Pētertirgus)
-        r"(?i)(?:Liep[aā]j[aā]s?\s*)?(?:P[eē]ter[ti]|peter[ti]|pēter[ti])[^\n\r]*?(?:tirgus?|TIRGUS?|ertirg)",
-        r"peterstirgus\.lv",  # Email domain atpazīšana
-        r"(?i)ertirg\s*uss?\s*SIA",  # Fragmentēts "TIRGUS SIA"
-        r"(?i)(?:3\s*ļ\.\s*)?Liep[aā]\s*[^\n\r]*?P[eē]ter",  # "3 ļ. Liepā... Pēter"
-        
-        # Specifiskāri patterni ar kontekstu 
-        r"(?i)piegādātājs[\s:]*([^\n\r,]+?)(?:\s*Reg|$|\n)",
-        r"(?i)supplier[\s:]*([^\n\r,]+?)(?:\s*Reg|$|\n)", 
-        r"(?i)SIA\s*([A-ZĀĒĪŌŪšģķļņčžāēīōū\-\s\"]{2,30})(?:\s*Reg|\s*nr|\s*$|\n)",
-        r"(?i)SIA\s*\"([^\"]{2,30})\"",
-        r"(?i)AS\s*\"([^\"]{2,30})\"",
-        r"(?i)AS\s+([A-ZĀĒĪŌŪšģķļņčžāēīōū\-\s]{2,30})(?:\s*Reg|\s*$|\n)",
-        r"(?i)Z\/S\s+([A-ZĀĒĪŌŪšģķļņčžāēīōū\-\s]{2,20})(?:\s*Reg|\s*$|\n)",
-        # Patterni ar "egadatajs" (no TIM-T rezultāta)
-        r"egadatajs[,\s]*SIA\s*([A-ZĀĒĪŌŪšģķļņčžāēīōū\-\s]{2,20})",
-        r"([A-ZĀĒĪŌŪšģķļņčžāēīōū\-]{2,15})\s*Reg\.\s*Nr\.\s*\d+",
-        # Uzņēmuma kods ar nosaukumu
-        r"SIA\s*([A-ZĀĒĪŌŪšģķļņčžāēīōū\-]{2,15})\s*Reg",
-    ],
+    "supplier": SUPPLIER_PATTERNS,
+    "supplier_name": SUPPLIER_NAME,
+    "supplier_vat_number": SUPPLIER_VAT_NUMBER,
+    "supplier_registration_number": SUPPLIER_REGISTRATION_NUMBER,
+    # Pavadzīmes numurs - uzlaboti patterni
+    "invoice_number": INVOICE_NUMBER_PATTERNS,
     
     # Datums - dažādi formāti
-    "date": [
-        r"(\d{4})[\.\/\-](\d{1,2})[\.\/\-](\d{1,2})",  # YYYY-MM-DD
-        r"(\d{1,2})[\.\/\-](\d{1,2})[\.\/\-](\d{4})",  # DD-MM-YYYY
-        r"(\d{4})\.\s*gada\s*(\d{1,2})\.\s*(janvāris|februāris|marts|aprīlis|maijs|jūnijs|jūlijs|augusts|septembris|oktobris|novembris|decembris)",
-        r"(?i)datums?[\s:]*(\d{1,2}[\./\-]\d{1,2}[\./\-]\d{2,4})",
-        # Lindström specific - 31. 05. 2025
-        r"(?i)izrakstibanasdat\.?\s*(\d{1,2})\.?\s*(\d{1,2})\.?\s*(\d{4})",
-        # Specifiski patterni
-        r"gada(\d{1,2}),?\s*(maijs|maljs)",  # "gada7, maijs"
-    ],
+    "date": DATE_PATTERNS,
     
     # Kopējā summa - uzlaboti patterni
     "total": [
