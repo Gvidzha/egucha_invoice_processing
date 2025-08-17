@@ -15,6 +15,7 @@ from app.config import REGEX_PATTERNS, CONFIDENCE_THRESHOLD
 
 from app.extractions.extracted_data import ExtractedData
 from app.extractions.supplier_extractor import extract_supplier_name
+from app.utils.ocr_utils import load_ocr_corrections, correct_ocr_text
 
 
 logger = logging.getLogger(__name__)
@@ -28,6 +29,7 @@ class ExtractionService:
         """Inicializē ekstraktēšanas servisu"""
         self.patterns = REGEX_PATTERNS
         self.confidence_threshold = CONFIDENCE_THRESHOLD
+        self.ocr_corrections = load_ocr_corrections("backend/app/resources/clean_ocr_vardnica.txt")
         
     async def extract_invoice_data(self, ocr_text: str) -> ExtractedData:
         """
@@ -41,36 +43,37 @@ class ExtractionService:
         """
         try:
             logger.info("Sākam datu ekstraktēšanu no OCR teksta")
+            cleaned_text = correct_ocr_text(ocr_text, self.ocr_corrections)
             extracted = ExtractedData()
             
             # Ekstraktēt pavadzīmes numuru
-            extracted.invoice_number = await self._extract_invoice_number(ocr_text)
-            
+            extracted.invoice_number = await self._extract_invoice_number(cleaned_text)
+
             # Ekstraktēt piegādātāju
-            extracted.supplier_name, extracted.supplier_confidence = await self._extract_supplier(ocr_text)
-            extracted.supplier_reg_number = await self._extract_supplier_reg_number(ocr_text)
-            extracted.supplier_address = await self._extract_supplier_address(ocr_text)
-            extracted.supplier_bank_account = await self._extract_supplier_bank_account(ocr_text)
-            
+            extracted.supplier_name, extracted.supplier_confidence = await self._extract_supplier(cleaned_text)
+            extracted.supplier_reg_number = await self._extract_supplier_reg_number(cleaned_text)
+            extracted.supplier_address = await self._extract_supplier_address(cleaned_text)
+            extracted.supplier_bank_account = await self._extract_supplier_bank_account(cleaned_text)
+
             # Ekstraktēt saņēmēju
-            extracted.recipient_name, extracted.recipient_confidence = await self._extract_recipient(ocr_text)
-            extracted.recipient_reg_number = await self._extract_recipient_reg_number(ocr_text)
-            extracted.recipient_address = await self._extract_recipient_address(ocr_text)
-            extracted.recipient_bank_account = await self._extract_recipient_bank_account(ocr_text)
+            extracted.recipient_name, extracted.recipient_confidence = await self._extract_recipient(cleaned_text)
+            extracted.recipient_reg_number = await self._extract_recipient_reg_number(cleaned_text)
+            extracted.recipient_address = await self._extract_recipient_address(cleaned_text)
+            extracted.recipient_bank_account = await self._extract_recipient_bank_account(cleaned_text)
             
             # Ekstraktēt datumus
-            extracted.invoice_date = await self._extract_invoice_date(ocr_text)
-            extracted.delivery_date = await self._extract_delivery_date(ocr_text)
-            
+            extracted.invoice_date = await self._extract_invoice_date(cleaned_text)
+            extracted.delivery_date = await self._extract_delivery_date(cleaned_text)
+
             # Ekstraktēt kopējo summu un PVN
-            extracted.total_amount = await self._extract_total_amount(ocr_text)
-            extracted.subtotal_amount = await self._extract_subtotal_amount(ocr_text)
-            extracted.vat_amount = await self._extract_vat_amount(ocr_text)
-            extracted.currency = await self._extract_currency(ocr_text)
+            extracted.total_amount = await self._extract_total_amount(cleaned_text)
+            extracted.subtotal_amount = await self._extract_subtotal_amount(cleaned_text)
+            extracted.vat_amount = await self._extract_vat_amount(cleaned_text)
+            extracted.currency = await self._extract_currency(cleaned_text)
             
             # Ekstraktēt produktu rindas
-            extracted.products = await self._extract_product_lines(ocr_text)
-            
+            extracted.products = await self._extract_product_lines(cleaned_text)
+
             # Aprēķināt confidence scores
             extracted.confidence_scores = await self._calculate_confidence_scores(extracted)
 

@@ -11,6 +11,9 @@ from datetime import date
 from app.services.extraction_service import ExtractionService, ExtractedData
 from app.services.ner_service import NERService, NEREntity
 
+from app.utils.ocr_utils import load_ocr_corrections, correct_ocr_text
+
+
 logger = logging.getLogger(__name__)
 
 class HybridExtractionService:
@@ -19,8 +22,11 @@ class HybridExtractionService:
     def __init__(self):
         self.regex_service = ExtractionService()
         self.ner_service = NERService()
+        self.ocr_corrections = load_ocr_corrections("backend/app/utils/clean_ocr_vardnica.txt")
         
     async def extract_invoice_data(self, ocr_text: str, use_ner: bool = True) -> ExtractedData:
+        # Izlabo OCR tekstu pirms ekstrakcijas
+        cleaned_text = correct_ocr_text(ocr_text, self.ocr_corrections)
         """
         Ekstraktē datus izmantojot hybrid pieeju
         
@@ -37,11 +43,11 @@ class HybridExtractionService:
             # 1. SĀKUMĀ izmanto NER (lai izmantotu mācīšanos!)
             ner_entities = []
             if use_ner:
-                ner_entities = await self.ner_service.extract_entities(ocr_text)
+                ner_entities = await self.ner_service.extract_entities(cleaned_text)
                 logger.info(f"NER atrada {len(ner_entities)} entities ar mācīšanos")
             
             # 2. Pēc tam izmanto regex (stabilo baseline)
-            regex_data = await self.regex_service.extract_invoice_data(ocr_text)
+            regex_data = await self.regex_service.extract_invoice_data(cleaned_text)
             
             if not use_ner:
                 # Ja NER ir izslēgts, atgriež tikai regex rezultātus
