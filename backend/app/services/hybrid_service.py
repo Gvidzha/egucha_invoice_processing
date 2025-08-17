@@ -22,7 +22,7 @@ class HybridExtractionService:
     def __init__(self):
         self.regex_service = ExtractionService()
         self.ner_service = NERService()
-        self.ocr_corrections = load_ocr_corrections("backend/app/utils/clean_ocr_vardnica.txt")
+        self.ocr_corrections = load_ocr_corrections("backend/app/ocr_corrections/clean_ocr_vardnica.txt")
         
     async def extract_invoice_data(self, ocr_text: str, use_ner: bool = True) -> ExtractedData:
         # Izlabo OCR tekstu pirms ekstrakcijas
