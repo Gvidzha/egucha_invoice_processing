@@ -76,11 +76,12 @@ class HybridExtractionService:
         for entity in ner_entities:
             confidence_bonus = 0.2  # NER iegūst confidence bonus
             
-            if entity.label == 'SUPPLIER' and entity.confidence > 0.6:
+            if entity.label == 'SUPPLIER_NAME' and entity.confidence > 0.6:
                 # NER SUPPLIER vienmēr pārraksta regex, ja confidence > 0.6
-                combined.supplier_name = entity.text
-                combined.supplier_confidence = min(entity.confidence + confidence_bonus, 1.0)
-                logger.info(f"NER pārrakstīja supplier: {entity.text} (conf: {entity.confidence:.2f})")
+                if entity.text and entity.text.lower() not in ["periods", "reģ", "adrese", ""]:
+                    combined.supplier_name = entity.text
+                    combined.supplier_confidence = min(entity.confidence + confidence_bonus, 1.0)
+                    logger.info(f"NER pārrakstīja supplier: {entity.text} (conf: {entity.confidence:.2f})")
             
             elif entity.label == 'RECIPIENT' and entity.confidence > 0.5:
                 # Pārbaudām vai tas nav adrese  
@@ -89,7 +90,7 @@ class HybridExtractionService:
                     combined.recipient_confidence = min(entity.confidence + confidence_bonus, 1.0)
                     logger.info(f"NER pārrakstīja recipient: {entity.text} (conf: {entity.confidence:.2f})")
             
-            elif entity.label == 'REG_NUMBER' and entity.confidence > 0.7:
+            elif entity.label == 'SUPPLIER_REGISTRATION_NUMBER' and entity.confidence > 0.7:
                 combined.supplier_reg_number = entity.text
                 logger.info(f"NER pārrakstīja reg_number: {entity.text}")
             
