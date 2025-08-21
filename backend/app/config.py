@@ -12,7 +12,6 @@ from app.regex_patterns.contract_number_patterns import CONTRACT_NUMBER_PATTERNS
 from app.regex_patterns.supplier_patterns import SUPPLIER_NAME
 from app.regex_patterns.supplier_patterns import SUPPLIER_VAT_NUMBER
 from app.regex_patterns.supplier_patterns import SUPPLIER_REGISTRATION_NUMBER
-from app.regex_patterns.document_number_patterns import INVOICE_NUMBER_PATTERNS
 from app.regex_patterns.latvian_months import LATVIAN_MONTHS
 from app.regex_patterns.reg_vat_number_patterns import SUPPLIER_REG_NUMBER_PATTERNS
 from app.regex_patterns.date_patterns import DATE_PATTERNS
@@ -116,8 +115,7 @@ REGEX_PATTERNS = {
     "supplier_name": SUPPLIER_NAME,
     "supplier_vat_number": SUPPLIER_VAT_NUMBER,
     "supplier_registration_number": SUPPLIER_REGISTRATION_NUMBER,
-    # Pavadzīmes numurs - uzlaboti patterni
-    "document_number": INVOICE_NUMBER_PATTERNS,
+   
     
     # Datums - dažādi formāti
     "date": DATE_PATTERNS,

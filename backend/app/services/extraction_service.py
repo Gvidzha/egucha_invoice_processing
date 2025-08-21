@@ -89,13 +89,13 @@ class ExtractionService:
             return ExtractedData()
             
     async def _extract_document_number(self, text: str) -> Optional[str]:
-        """Ekstraktē pavadzīmes numuru"""
+        """Ekstraktē dokumenta numuru"""
         for pattern in self.patterns["document_number"]:
             match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
             if match:
-                number = match[1].strip()
-                logger.debug(f"Atrasts pavadzīmes numurs: {number}")
-                return number
+                document_number = match[1].strip()
+                logger.debug(f"Atrasts dokumenta numurs: {document_number}")
+                return document_number
         return None
     
     async def _extract_supplier(self, text: str) -> Tuple[Optional[str], float]:
