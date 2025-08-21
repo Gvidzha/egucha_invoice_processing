@@ -104,7 +104,7 @@ class HybridExtractionService:
                 combined.recipient_reg_number = entity.text
                 logger.info(f"NER pārrakstīja recipient_reg_number: {entity.text}")
             
-            elif entity.label == 'INVOICE_NUMBER' and entity.confidence > 0.7:
+            elif entity.label == 'DOCUMENT_NUMBER' and entity.confidence > 0.7:
                 combined.document_number = entity.text
                 logger.info(f"NER pārrakstīja document_number: {entity.text}")
             

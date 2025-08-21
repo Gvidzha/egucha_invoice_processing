@@ -172,7 +172,7 @@ class NERService:
                     "confidence": 0.8
                 }
             ],
-            "INVOICE_NUMBER": [
+            "DOCUMENT_NUMBER": [
                 {
                     "pattern": r"(?:pavadzīme|invoice|nr)\.?\s*([A-Z0-9]+)",
                     "confidence": 0.8
@@ -242,7 +242,7 @@ class NERService:
             'recipient_name': 'RECIPIENT', 
             'supplier_reg_number': 'REG_NUMBER',
             'recipient_reg_number': 'RECIPIENT_REG_NUMBER',
-            'document_number': 'INVOICE_NUMBER',
+            'document_number': 'DOCUMENT_NUMBER',
             'total_amount': 'AMOUNT',
             'vat_amount': 'VAT_AMOUNT',
             'invoice_date': 'DATE',

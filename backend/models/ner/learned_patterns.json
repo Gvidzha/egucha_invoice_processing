@@ -125,7 +125,7 @@
       "invoice_type": "PETERSTIRGUS"
     }
   ],
-  "INVOICE_NUMBER": [
+  "DOCUMENT_NUMBER": [
     {
       "pattern": "(1225/25)",
       "confidence": 0.9,
