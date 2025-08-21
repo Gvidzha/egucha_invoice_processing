@@ -234,7 +234,7 @@ class TextCleaner:
             'dates': self.extract_dates(cleaned_text),
             'amounts': self.extract_amounts(cleaned_text),
             'supplier_candidates': self.extract_supplier_candidates(cleaned_text),
-            'invoice_number': self.extract_invoice_number(cleaned_text),
+            'document_number': self.extract_document_number(cleaned_text),
             'items': self.extract_items(cleaned_text)
         }
         
@@ -294,7 +294,7 @@ class TextCleaner:
         
         return candidates
     
-    def extract_invoice_number(self, text: str) -> Optional[str]:
+    def extract_document_number(self, text: str) -> Optional[str]:
         """Ekstraktē pavadzīmes numuru"""
         # Meklē pēc "Nr.", "No.", "Numurs" utml.
         patterns = [
@@ -392,14 +392,14 @@ class TextCleaner:
             structure_score += 0.3
         if structured_data['supplier_candidates']:
             structure_score += 0.2
-        if structured_data['invoice_number']:
+        if structured_data['document_number']:
             structure_score += 0.2
         
         factors.append(structure_score)
         
         # 3. Valodas kvalitāte (latviaši vārdi)
-        latvian_terms_found = sum(1 for term in self.invoice_terms.keys() 
-                                 if term in cleaned_text.lower())
+        cleaned_lower = cleaned_text.lower()
+        latvian_terms_found = sum(term in cleaned_lower for term in self.invoice_terms)
         language_score = min(1.0, latvian_terms_found / 3)  # Maksimums 3 termini
         factors.append(language_score)
         

@@ -19,7 +19,7 @@ def check_invoice_table():
         'extracted_text',      # Trūkst!
         'ocr_confidence',      # Trūkst!
         'ocr_strategy',        # Trūkst!
-        'invoice_number',      # Trūkst!
+        'document_number',      # Trūkst!
         'vat_amount',          # Trūkst!
         'address',             # Trūkst!
         'uploaded_at',         # Trūkst!

@@ -126,7 +126,7 @@ class TestPOSM45Week2Integration:
         from app.services.extraction_service import ExtractedInvoiceData
         
         data = Mock(spec=ExtractedInvoiceData)
-        data.invoice_number = "12345"
+        data.document_number = "12345"
         data.supplier_name = "SIA TestFirma"
         data.supplier_confidence = 0.92
         data.supplier_reg_number = "12345678901"
@@ -466,7 +466,7 @@ class TestBackgroundTaskEnhancements(TestPOSM45Week2Integration):
             
             mock_extraction_instance = AsyncMock()
             mock_extraction_instance.extract_invoice_data.return_value = Mock(
-                invoice_number="123", supplier_name="Test", products=[]
+                document_number="123", supplier_name="Test", products=[]
             )
             mock_extraction_service.return_value = mock_extraction_instance
             
@@ -524,7 +524,7 @@ class TestErrorHandlingAndFallbacks(TestPOSM45Week2Integration):
             
             mock_regex_instance = AsyncMock()
             mock_regex_instance.extract_invoice_data.return_value = Mock(
-                invoice_number="123", supplier_name="Test", products=[]
+                document_number="123", supplier_name="Test", products=[]
             )
             mock_regex_service.return_value = mock_regex_instance
             

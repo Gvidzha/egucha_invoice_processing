@@ -85,6 +85,14 @@ class PDFProcessor:
             logger.error(f"Kļūda konvertējot PDF {pdf_path}: {e}")
             return []
     
+    def _save_pdf_page_as_image(self, page, output_path, mat):
+        pix = page.get_pixmap(matrix=mat)
+        pix.save(str(output_path))
+
+    def _get_pymupdf_matrix(self, dpi: int) -> "fitz.Matrix":
+        zoom = dpi / 72.0
+        return fitz.Matrix(zoom, zoom)
+
     def _convert_with_pymupdf(self, pdf_path: str, dpi: int = 300) -> List[str]:
         """Konvertē PDF ar PyMuPDF bibliotēku"""
         image_paths = []
@@ -93,19 +101,12 @@ class PDFProcessor:
             pdf_document = fitz.open(pdf_path)
             pdf_name = Path(pdf_path).stem
             
-            # Aprēķina zoom faktoru DPI
-            zoom = dpi / 72.0  # 72 DPI ir default
-            mat = fitz.Matrix(zoom, zoom)
-            
+            mat = self._get_pymupdf_matrix(dpi)
+
             for page_num in range(pdf_document.page_count):
                 page = pdf_document[page_num]
-                
-                # Konvertē lapu uz attēlu
-                pix = page.get_pixmap(matrix=mat)
-                
-                # Saglabā kā PNG
                 output_path = self.temp_dir / f"{pdf_name}_page_{page_num + 1:03d}.png"
-                pix.save(str(output_path))
+                self._save_pdf_page_as_image(page, output_path, mat)
                 image_paths.append(str(output_path))
                 
                 logger.debug(f"Konvertēta lapa {page_num + 1}/{pdf_document.page_count}")
@@ -327,7 +328,6 @@ class PDFProcessor:
                 # Dzēš vecākos failus
                 for file_path in temp_files[keep_recent:]:
                     file_path.unlink()
-                    
                 logger.info(f"Iztīrīti {len(temp_files) - keep_recent} PDF temporary faili")
         except Exception as e:
             logger.warning(f"Nevarēja iztīrīt PDF temporary failus: {e}")

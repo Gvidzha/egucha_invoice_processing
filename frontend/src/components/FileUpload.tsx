@@ -76,7 +76,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded, onError }) => {
   }, []);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+    const { files } = e.target;
     if (files && files.length > 0) {
       handleFileUpload(files[0]);
     }
@@ -94,7 +94,9 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded, onError }) => {
   };
 
   const getStatusText = () => {
-    if (isUploading) return 'Augšupielādē...';
+    if (isUploading) {
+      return 'Augšupielādē...';
+    }
     switch (uploadStatus) {
       case 'success':
         return 'Fails veiksmīgi augšupielādēts!';

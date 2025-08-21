@@ -24,6 +24,14 @@ from .structure_aware_ocr import StructureAwareOCR, StructureAwareOCRResult
 
 logger = logging.getLogger(__name__)
 
+class OCRNotInitializedError(RuntimeError):
+    """OCR sistēma nav inicializēta."""
+    pass
+
+class PDFPreparationError(RuntimeError):
+    """PDF sagatavošanas kļūda."""
+    pass
+
 class OCRService:
     """Galvenais OCR serviss ar modulāru arhitektūru"""
     
@@ -161,8 +169,8 @@ class OCRService:
         
         try:
             if not self.system_ready:
-                raise Exception("OCR sistēma nav inicializēta. Izsauciet initialize() metodi.")
-            
+                raise OCRNotInitializedError("OCR sistēma nav inicializēta. Izsauciet initialize() metodi.")
+
             # Pārbauda faila eksistenci
             if not Path(image_path).exists():
                 print(f"DEBUG after if not preprocess: processed_image_path={processed_image_path}")
@@ -271,7 +279,7 @@ class OCRService:
             pdf_prep = self.pdf_processor.process_pdf_for_ocr(pdf_path)
             
             if not pdf_prep['success']:
-                raise Exception(f"Nevarēja sagatavot PDF: {pdf_prep.get('error', 'Unknown error')}")
+                raise PDFPreparationError(f"Nevarēja sagatavot PDF: {pdf_prep.get('error', 'Unknown error')}")
             
             result['total_pages'] = pdf_prep['total_pages']
             
@@ -289,13 +297,13 @@ class OCRService:
                     structured = self.text_cleaner.extract_structured_data(cleaned)
                     result['combined_structured_data'] = structured
                 
-                logger.info(f"PDF satur tekstu - izmantots direct extraction")
+                logger.info("PDF satur tekstu - izmantots direct extraction")                
                 return result
             
             # OCR katrai lapai
             image_paths = pdf_prep['image_paths']
             if not image_paths:
-                raise Exception("Nav izveidoti attēli no PDF lapām")
+                raise PDFPreparationError("Nav izveidoti attēli no PDF lapām")
             
             all_texts = []
             all_confidences = []
@@ -421,7 +429,7 @@ class OCRService:
         
         try:
             if not self.system_ready:
-                raise Exception("OCR sistēma nav inicializēta. Izsauciet initialize() metodi.")
+                raise OCRNotInitializedError("OCR sistēma nav inicializēta. Izsauciet initialize() metodi.")
             
             # Pārbauda faila eksistenci
             if not Path(image_path).exists():

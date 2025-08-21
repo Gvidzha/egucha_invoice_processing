@@ -11,7 +11,7 @@ liguma_nr: contract_number
 
 # Supplier Information (Piegādātājs)
 piegadatajs: supplier_name
-piegadataja_pvd_nr: supplier_pvd_number  # sameklēt kur kodā teik lietots supplier_vat_payer_number
+piegadataja_pvd_nr: supplier_pvd_number  # sameklēt kur kodā tiek lietots supplier_vat_payer_number
 piegadataja_pvn: supplier_vat_number
 piegadataja_reg_nr: supplier_registration_number
 piegadataja_jur_adrese: supplier_legal_address

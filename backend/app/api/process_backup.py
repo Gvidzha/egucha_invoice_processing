@@ -155,7 +155,7 @@ async def update_invoice_with_corrections(db: Session, invoice: Invoice, correct
     """Atjaunina invoice ar lietotāja labojumiem"""
     
     field_mapping = {
-        'invoice_number': 'invoice_number',
+        'document_number': 'document_number',
         'supplier_name': 'supplier_name', 
         'recipient_name': 'recipient_name',
         'supplier_reg_number': 'supplier_reg_number',
@@ -379,7 +379,7 @@ async def process_invoice_ocr(file_id: int):
         extracted_data = await extraction_service.extract_invoice_data(ocr_result['cleaned_text'])
         
         # Saglabājam ekstraktētos datus
-        invoice.invoice_number = extracted_data.invoice_number
+        invoice.document_number = extracted_data.document_number
         
         # Piegādātāja informācija
         invoice.supplier_name = extracted_data.supplier_name
@@ -416,7 +416,7 @@ async def process_invoice_ocr(file_id: int):
         db.commit()
         
         logger.info(f"Apstrāde pabeigta veiksmīgi: {invoice.original_filename}")
-        logger.info(f"Ekstraktētie dati: Nr:{invoice.invoice_number}, "
+        logger.info(f"Ekstraktētie dati: Nr:{invoice.document_number}, "
                    f"Piegādātājs:{invoice.supplier_name}, Summa:{invoice.total_amount}")
         
     except Exception as e:
@@ -459,7 +459,7 @@ async def process_invoice(
             "message": "Fails jau ir apstrādāts",
             "file_id": file_id,
             "status": "already_completed",
-            "invoice_number": invoice.invoice_number,
+            "document_number": invoice.document_number,
             "supplier_name": invoice.supplier_name,
             "total_amount": float(invoice.total_amount) if invoice.total_amount else None,
             "confidence_score": float(invoice.confidence_score) if invoice.confidence_score else None
@@ -539,7 +539,7 @@ async def get_processing_status(
     # Pievienot ekstraktētos datus, ja apstrāde pabeigta
     if invoice.status == "completed":
         # Pievienojam datus augšējā līmenī frontend vajadzībām
-        response["invoice_number"] = invoice.invoice_number
+        response["document_number"] = invoice.document_number
         
         # Piegādātāja informācija
         response["supplier_name"] = invoice.supplier_name
@@ -578,7 +578,7 @@ async def get_processing_status(
         
         # Saglabājam arī extracted_data objektu saderībai
         response["extracted_data"] = {
-            "invoice_number": invoice.invoice_number,
+            "document_number": invoice.document_number,
             "supplier_name": invoice.supplier_name,
             "supplier_reg_number": invoice.supplier_reg_number,
             "recipient_name": invoice.recipient_name,
@@ -770,7 +770,7 @@ async def get_processing_results(
             "overall_confidence": float(invoice.confidence_score) if invoice.confidence_score else None
         },
         "extracted_data": {
-            "invoice_number": invoice.invoice_number,
+            "document_number": invoice.document_number,
             "supplier_name": invoice.supplier_name,
             "invoice_date": invoice.invoice_date.isoformat() if invoice.invoice_date else None,
             "delivery_date": invoice.delivery_date.isoformat() if invoice.delivery_date else None,
@@ -861,7 +861,7 @@ async def learn_from_corrections(
             from app.services.extraction_service import ExtractedData
             
             extracted_data = ExtractedData()
-            extracted_data.invoice_number = invoice.invoice_number
+            extracted_data.document_number = invoice.document_number
             extracted_data.supplier_name = invoice.supplier_name
             extracted_data.recipient_name = invoice.recipient_name
             extracted_data.total_amount = float(invoice.total_amount) if invoice.total_amount else None
@@ -908,7 +908,7 @@ async def update_invoice_with_corrections(db: Session, invoice: Invoice, correct
     """Atjaunina invoice ar lietotāja labojumiem"""
     
     field_mapping = {
-        'invoice_number': 'invoice_number',
+        'document_number': 'document_number',
         'supplier_name': 'supplier_name', 
         'recipient_name': 'recipient_name',
         'supplier_reg_number': 'supplier_reg_number',

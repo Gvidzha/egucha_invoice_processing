@@ -1,7 +1,7 @@
 {
   "field_mappings": {
     "template_to_db": {
-      "dok_nr": "invoice_number",
+      "dok_nr": "document_number",
       "piegadatajs": "supplier_name",
       "piegadataja_reg_nr": "supplier_reg_number",
       "piegadataja_jur_adrese": "supplier_address",
@@ -15,7 +15,7 @@
       "curency": "currency"
     },
     "db_to_template": {
-      "invoice_number": "dok_nr",
+      "document_number": "dok_nr",
       "supplier_name": "piegadatajs",
       "supplier_reg_number": "piegadataja_reg_nr",
       "supplier_address": "piegadataja_jur_adrese",

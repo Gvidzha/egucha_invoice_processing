@@ -311,7 +311,7 @@
       {
         "text": "1225/25",
         "label": "INVOICE_NUMBER",
-        "field": "invoice_number"
+        "field": "document_number"
       },
       {
         "text": "175.7",
@@ -364,7 +364,7 @@
       {
         "text": "1225/25",
         "label": "INVOICE_NUMBER",
-        "field": "invoice_number"
+        "field": "document_number"
       },
       {
         "text": "175.7",
@@ -417,7 +417,7 @@
       {
         "text": "1225/25",
         "label": "INVOICE_NUMBER",
-        "field": "invoice_number"
+        "field": "document_number"
       },
       {
         "text": "175.7",
@@ -470,7 +470,7 @@
       {
         "text": "1225/25",
         "label": "INVOICE_NUMBER",
-        "field": "invoice_number"
+        "field": "document_number"
       },
       {
         "text": "175.7",

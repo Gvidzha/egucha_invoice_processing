@@ -221,7 +221,9 @@ export function calculateVATAmount(totalPrice: number, vatRate: number): number 
  * Format product summary
  */
 export function formatProductSummary(products: ProductItem[]): string {
-  if (products.length === 0) return "Nav produktu";
+  if (products.length === 0) {
+    return "Nav produktu";
+  }
 
   const totalItems = products.length;
   const totalAmount = products.reduce((sum, p) => sum + (p.total_price || 0), 0);

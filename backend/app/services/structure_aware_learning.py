@@ -331,7 +331,7 @@ class StructureAwareLearningService:
             return "date_pattern"
         elif field in ["total_amount", "vat_amount"]:
             return "amount_pattern"
-        elif field in ["invoice_number"]:
+        elif field in ["document_number"]:
             return "id_pattern"
         elif field in ["supplier", "recipient"]:
             return "name_pattern"

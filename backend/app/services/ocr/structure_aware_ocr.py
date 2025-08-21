@@ -3,13 +3,14 @@ Structure-Aware OCR Service - POSM 4.5 Week 3
 Paplašina OCR funkcionalitāti ar dokumenta struktūras kontekstu
 """
 
+from ast import pattern
 import cv2
 import numpy as np
 from typing import List, Dict, Optional, Tuple, Any
 from dataclasses import dataclass, asdict
 import logging
 import asyncio
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 
 from ..document_structure_service import (
@@ -41,7 +42,7 @@ class StructureAwareOCRResult:
     
     def __post_init__(self):
         if self.created_at is None:
-            self.created_at = datetime.utcnow()
+            self.created_at = datetime.now(timezone.utc)
         if self.metadata is None:
             self.metadata = {}
         if not self.full_text:
@@ -73,7 +74,13 @@ class StructureAwareOCR:
     - Structure context integration
     """
     
-    def __init__(self, ocr_service, structure_analyzer: Optional[DocumentStructureAnalyzer] = None):
+    def __init__(
+        self,
+        ocr_service,
+        structure_analyzer: Optional[DocumentStructureAnalyzer] = None,
+        template_reliability_threshold: float = 0.8,
+        template_confidence_boost: float = 1.1,
+    ):
         """
         Inicializē ar atsauci uz esošo OCR servisu
         
@@ -81,6 +88,11 @@ class StructureAwareOCR:
             ocr_service: Atsauce uz OCRService instanci
             structure_analyzer: DocumentStructureAnalyzer instance
         """
+        self.ocr_service = ocr_service
+        self.structure_analyzer = structure_analyzer or DocumentStructureAnalyzer()
+        self.logger = logging.getLogger(__name__)
+        self.template_reliability_threshold = template_reliability_threshold
+        self.template_confidence_boost = template_confidence_boost
         self.ocr_service = ocr_service
         self.structure_analyzer = structure_analyzer or DocumentStructureAnalyzer()
         self.logger = logging.getLogger(__name__)
@@ -157,7 +169,7 @@ class StructureAwareOCR:
         Returns:
             StructureAwareOCRResult: OCR rezultāts ar struktūras informāciju
         """
-        start_time = datetime.utcnow()
+        start_time = datetime.now(timezone.utc)
         
         try:
             # 1. Analizē dokumenta struktūru
@@ -182,10 +194,11 @@ class StructureAwareOCR:
             standard_ocr_result = await self.ocr_service.extract_text_from_image(image_path)
             
             # 5. Kombinē rezultātus
-            zone_dict = {}
-            for i, zone in enumerate(structure.zones):
-                if i < len(zone_results) and not isinstance(zone_results[i], Exception):
-                    zone_dict[zone.zone_type.value] = zone_results[i]
+            zone_dict = {
+                zone.zone_type.value: zone_results[i]
+                for i, zone in enumerate(structure.zones)
+                if i < len(zone_results) and not isinstance(zone_results[i], Exception)
+            }
             
             # 6. Izveido enhanced text ar struktūras kontekstu
             enhanced_text = self._create_enhanced_text(
@@ -492,23 +505,24 @@ class StructureAwareOCR:
                 zone_data = zone_results[zone_type.value]
                 zone_text = zone_data.get('text', '').strip()
                 if zone_text:
-                    enhanced_lines.append(f"[{zone_type.value.upper()}]")
-                    enhanced_lines.append(zone_text)
-                    enhanced_lines.append("")
+                    enhanced_lines.extend([
+                        f"[{zone_type.value.upper()}]",
+                        zone_text,
+                        ""
+                    ])
         
         # Pievienojam tabulu saturu strukturētā veidā
         for i, table_result in enumerate(table_results):
             if table_result.get('matrix'):
                 enhanced_lines.append(f"[TABLE_{i+1}]")
-                for row in table_result['matrix']:
-                    enhanced_lines.append(" | ".join(str(cell) for cell in row))
+                enhanced_lines.extend(
+                    " | ".join(str(cell) for cell in row)
+                    for row in table_result['matrix']
+                )
                 enhanced_lines.append("")
         
         # Ja nav struktūras rezultātu, atgriežam base text
-        if not enhanced_lines:
-            return base_text
-        
-        return "\n".join(enhanced_lines)
+        return "\n".join(enhanced_lines) if enhanced_lines else base_text
     
     def _calculate_weighted_confidence(self, base_confidence: float, 
                                      zone_results: Dict[str, Any], 
@@ -823,12 +837,13 @@ class StructureAwareOCR:
         """Piemēro template-based optimizācijas"""
         # Template-specific zone adjustments
         for zone_type, hints in template_hints.items():
-            if zone_type in result.zone_results:
+            if (
+                zone_type in result.zone_results
+                and isinstance(result.zone_results[zone_type], dict)
+                and hints.get("reliability", 0) > 0.8
+            ):
                 zone_data = result.zone_results[zone_type]
-                if isinstance(zone_data, dict):
-                    # Apply template-specific confidence boosts
-                    if hints.get("reliability", 0) > 0.8:
-                        zone_data["confidence"] = min(1.0, zone_data.get("confidence", 0) * 1.1)
+                zone_data["confidence"] = min(1.0, zone_data.get("confidence", 0) * 1.1)
     
     async def _apply_supplier_optimization(self, result: StructureAwareOCRResult, supplier_info: Dict[str, Any]):
         """Piemēro supplier-specific optimizācijas"""
@@ -856,29 +871,29 @@ class StructureAwareOCR:
     
     def _matches_pattern(self, text: str, pattern: str) -> bool:
         """Vienkārša pattern matching funkcija"""
-        # Basic pattern matching - can be enhanced
-        if pattern == "date" and any(c.isdigit() for c in text) and any(c in "./-" for c in text):
-            return True
-        if pattern == "amount" and any(c.isdigit() for c in text) and any(c in ".,€$" for c in text):
-            return True
-        return False
+        checks = {
+            "date": lambda t: any(c.isdigit() for c in t) and any(c in "./-" for c in t),
+            "amount": lambda t: any(c.isdigit() for c in t) and any(c in ".,€$" for c in t),
+        }
+        return checks.get(pattern, lambda t: False)(text)
     
     async def _calculate_enhanced_confidence(self, result: StructureAwareOCRResult, context_data: Dict[str, Any] = None) -> float:
         """Aprēķina enhanced confidence score"""
         try:
             # Base confidence from zones
-            zone_confidences = []
-            for zone_data in result.zone_results.values():
-                if isinstance(zone_data, dict) and "confidence" in zone_data:
-                    zone_confidences.append(zone_data["confidence"])
-            
+            zone_confidences = [
+                zone_data["confidence"]
+                for zone_data in result.zone_results.values()
+                if isinstance(zone_data, dict) and "confidence" in zone_data
+            ]
+
             if not zone_confidences:
                 return result.overall_confidence
             
             # Weighted average with emphasis on critical zones
             weights = {
                 "supplier": 1.2,
-                "invoice_number": 1.1, 
+                "document_number": 1.1, 
                 "date": 1.0,
                 "amount": 1.3,
                 "table": 0.9

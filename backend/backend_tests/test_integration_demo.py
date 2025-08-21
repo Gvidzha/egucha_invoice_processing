@@ -50,7 +50,7 @@ class TemplateIntegrationDemo:
         """Simulē esošo ekstraktēšanas servisu"""
         # Simulētie rezultāti (kā no pašreizējās sistēmas)
         return {
-            "invoice_number": "PAV-2025-12345",
+            "document_number": "PAV-2025-12345",
             "supplier_name": "SIA \"Latvijas Piegādātājs\"",
             "supplier_reg_number": "40003123456",
             "supplier_address": "Rīga, Brīvības iela 123",
@@ -150,7 +150,7 @@ class TemplateIntegrationDemo:
         rules = auto_rules.get("rules", {})
         
         # Trim whitespace
-        for field in ["supplier_name", "recipient_name", "invoice_number"]:
+        for field in ["supplier_name", "recipient_name", "document_number"]:
             if field in corrected and isinstance(corrected[field], str):
                 original = corrected[field]
                 corrected[field] = original.strip()

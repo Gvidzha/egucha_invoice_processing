@@ -84,8 +84,8 @@ def test_full_pipeline():
     print("="*50)
     
     # Pamat informācija
-    if results.get('invoice_number'):
-        print(f"📄 Pavadzīmes Nr: {results['invoice_number']}")
+    if results.get('document_number'):
+        print(f"📄 Pavadzīmes Nr: {results['document_number']}")
     if results.get('supplier_name'):
         print(f"🏢 Piegādātājs: {results['supplier_name']}")
     if results.get('invoice_date'):

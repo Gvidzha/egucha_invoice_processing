@@ -140,7 +140,9 @@ const EditableResults: React.FC<EditableResultsProps> = ({
 
   // Saglabā izmaiņas
   const handleSaveChanges = async () => {
-    if (!hasChanges) return;
+    if (!hasChanges) {
+      return;
+    }
 
     setIsSaving(true);
     try {

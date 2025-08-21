@@ -54,7 +54,7 @@ def test_extended_system():
     # Database field count simulation (business fields only) - 47 fields total
     db_fields_business = [
         # Core invoice fields (15)
-        'invoice_number', 'supplier_name', 'supplier_reg_number', 'supplier_address', 
+        'document_number', 'supplier_name', 'supplier_reg_number', 'supplier_address', 
         'supplier_bank_account', 'recipient_name', 'recipient_reg_number', 
         'recipient_address', 'recipient_bank_account', 'invoice_date', 'delivery_date',
         'total_amount', 'vat_amount', 'currency', 'subtotal_amount',

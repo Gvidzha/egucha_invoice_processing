@@ -85,7 +85,7 @@ def test_upload_and_process():
             if 'extracted_data' in status_result:
                 data = status_result['extracted_data']
                 print(f"\n📋 EKSTRAKTĒTIE DATI:")
-                print(f"📄 Pavadzīmes Nr: {data.get('invoice_number')}")
+                print(f"📄 Pavadzīmes Nr: {data.get('document_number')}")
                 print(f"🏢 Piegādātājs: {data.get('supplier_name')}")
                 print(f"📅 Datums: {data.get('invoice_date')}")
                 print(f"💰 Summa: {data.get('total_amount')} {data.get('currency')}")

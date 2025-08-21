@@ -1,0 +1,104 @@
+"Analizē šo skanētu pavadzīmi latviešu valodā un izveido REGEX izteiksmes visiem laukiem, kas atbilst standarta struktūrai. Katrai REGEX izteiksmei pievieno komentāru latviešu valodā, kas precīzi apraksta:
+1. Ko meklē (piemēram, "Dokumenta numurs" vai "Piegādātāja PVN numurs")
+2. Kāda formāta rezultātu sagaida (piemēram, "12.05.2023" vai "LV40103212345")
+
+Izmanto šādu struktūru katram laukam:
+[LAUKA_NOSAUKUMS]   REGEX = r"[izteiksme]"  REGEX = r"[izteiksme]"   Formāts: [gaidāmais rezultāta formāts]
+
+Ja lauks netiek atrasts, atstāj REGEX tukšu un norādi to komentārā.
+
+# Document Information
+DOCUMENT_TYPE = [ ]
+DOCUMENT_SERIES   = [ ]
+DOCUMENT_NUMBER = [ ]
+DELIVERY_DATE = [ ]
+SERVICE_DELIVERY_DATE = [ ]
+CONTRACT_NUMBER = [ ]
+
+# Supplier Information (Piegādātājs)
+SUPPLIER_NAME = [ ]
+SUPPLIER_PVD_NUMBER = [ ]
+SUPPLIER_VAT_NUMBER = [ ]
+SUPPLIER_REGISTRATION_NUMBER = [ ]
+SUPPLIER_LEGAL_ADDRESS = [ ]
+ISSUE_ADDRESS = [ ]
+
+# Supplier Banking (Primary)
+ SUPPLIER_BANK_NAME = [ ]
+ SUPPLIER_ACCOUNT_NUMBER = [ ]
+ SUPPLIER_SWIFT_CODE = [ ]
+
+# Supplier Banking (Additional Banks 1-4)
+ SUPPLIER_BANK_NAME_1 = [ ]
+ SUPPLIER_ACCOUNT_NUMBER_1 = [ ]
+ SUPPLIER_SWIFT_CODE_1 = [ ]
+ SUPPLIER_BANK_NAME_2 = [ ]
+ SUPPLIER_ACCOUNT_NUMBER_2 = [ ]
+ SUPPLIER_SWIFT_CODE_2 = [ ]
+ SUPPLIER_BANK_NAME_3 = [ ]
+ SUPPLIER_ACCOUNT_NUMBER_3 = [ ]
+ SUPPLIER_SWIFT_CODE_3 = [ ]
+ SUPPLIER_BANK_NAME_4 = [ ]
+ SUPPLIER_ACCOUNT_NUMBER_4 = [ ]
+ SUPPLIER_SWIFT_CODE_4 = [ ]
+
+# Recipient Information (Saņēmējs)
+ RECIPIENT_NAME = [ ]
+ RECIPIENT_VAT_NUMBER = [ ]
+ RECIPIENT_REGISTRATION_NUMBER = [ ]
+ RECIPIENT_LEGAL_ADDRESS = [ ]
+ RECEIVING_ADDRESS = [ ]
+
+# Recipient Banking
+ RECIPIENT_BANK_NAME = [ ]
+ RECIPIENT_ACCOUNT_NUMBER = [ ]
+ RECIPIENT_SWIFT_CODE = [ ]
+
+# Transport Information (Transporta informācija)
+ CARRIER_NAME = [ ]
+ CARRIER_VAT_NUMBER = [ ]
+ VEHICLE_NUMBER = [ ]
+ DRIVER_NAME = [ ]
+
+# Transaction Information (Darījuma informācija)
+ TRANSACTION_TYPE = [ ]
+ SERVICE_PERIOD = [ ]
+ PAYMENT_METHOD = [ ]
+ NOTES = [ ]
+
+# Financial Information (Finanšu informācija)
+ CURRENCY = [ ]
+ DISCOUNT = [ ]
+ TOTAL_WITH_DISCOUNT = [ ]
+ AMOUNT_WITH_DISCOUNT = [ ]
+ AMOUNT_WITHOUT_DISCOUNT = [ ]
+ AMOUNT_WITHOUT_VAT = [ ]
+ VAT_AMOUNT = [ ]
+ TOTAL_AMOUNT = [ ]
+
+# Additional Information (Papildu informācija)
+ ISSUED_BY_NAME = [ ]
+ INVOICE_DATE = [ ]
+ PAYMENT_DUE_DATE = [ ]
+ JUSTIFICATION = [ ]
+ TOTAL_ISSUED = [ ]
+ WEIGHT_KG = [ ]
+ ISSUED_BY = [ ]
+ TOTAL_QUANTITY = [ ]
+ PAGE_NUMBER = [ ]
+
+# Product Information (Produktu informācija)
+# These will be stored in separate products table
+ PRODUCT_SEQUENCE_NUMBER = [ ]
+ PRODUCT_DELIVERY_DATE = [ ]
+ PRODUCT_CODE = [ ]
+ PRODUCT_NAME = [ ]
+ PRODUCT_USAGE = [ ]
+ INCOMING_BATCH_NUMBER = [ ]
+ UNIT_OF_MEASURE = [ ]
+ QUANTITY = [ ]
+ UNIT_PRICE = [ ]
+ PRODUCT_DISCOUNT = [ ]
+ PRICE_WITH_DISCOUNT = [ ]
+ VAT_RATE = [ ]
+ TOTAL_PRICE = [ ]

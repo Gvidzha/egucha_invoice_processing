@@ -28,7 +28,7 @@ class Invoice(Base):
     document_type = Column(String)
     document_series = Column(String)
     document_number = Column(String)
-    invoice_number = Column(String)
+    document_number = Column(String)
     invoice_date = Column(Date)
     delivery_date = Column(Date)
     service_delivery_date = Column(Date)

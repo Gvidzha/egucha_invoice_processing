@@ -47,7 +47,7 @@ async def test_extraction_with_real_images():
             
             # Parādām rezultātus
             print(f"\n🔍 EKSTRAKTĒTIE DATI:")
-            print(f"📄 Pavadzīmes Nr: {extracted_data.invoice_number}")
+            print(f"📄 Pavadzīmes Nr: {extracted_data.document_number}")
             print(f"🏢 Piegādātājs: {extracted_data.supplier}")
             print(f"📅 Pavadzīmes datums: {extracted_data.invoice_date}")
             print(f"📅 Piegādes datums: {extracted_data.delivery_date}")
@@ -84,7 +84,7 @@ async def test_specific_patterns():
     
     # Test teksti
     test_texts = {
-        "invoice_number": [
+        "document_number": [
             "Pavadzīme Nr. 12345",
             "Invoice No: INV-2024-001", 
             "Dokuments Nr.PV-789",
@@ -115,8 +115,8 @@ async def test_specific_patterns():
         for text in texts:
             print(f"📄 Teksts: '{text}'")
             
-            if category == "invoice_number":
-                result = await extraction_service._extract_invoice_number(text)
+            if category == "document_number":
+                result = await extraction_service._extract_document_number(text)
                 print(f"✅ Rezultāts: {result}")
             elif category == "supplier":
                 result = await extraction_service._extract_supplier(text)

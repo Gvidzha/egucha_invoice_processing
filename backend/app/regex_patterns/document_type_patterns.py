@@ -1,4 +1,5 @@
 DOCUMENT_TYPE_PATTERNS = [
+
     r"(?i)faktūra",
     r"(?i)pavadzīme",
     r"(?i)rēķins",

@@ -105,8 +105,8 @@ class HybridExtractionService:
                 logger.info(f"NER pārrakstīja recipient_reg_number: {entity.text}")
             
             elif entity.label == 'INVOICE_NUMBER' and entity.confidence > 0.7:
-                combined.invoice_number = entity.text
-                logger.info(f"NER pārrakstīja invoice_number: {entity.text}")
+                combined.document_number = entity.text
+                logger.info(f"NER pārrakstīja document_number: {entity.text}")
             
             elif entity.label == 'AMOUNT' and entity.confidence > 0.7:
                 if not combined.total_amount:
@@ -234,7 +234,7 @@ class HybridExtractionService:
             ('supplier_name', extracted_data.supplier_name, corrected_data.get('supplier_name')),
             ('recipient_name', extracted_data.recipient_name, corrected_data.get('recipient_name')),
             ('total_amount', extracted_data.total_amount, corrected_data.get('total_amount')),
-            ('invoice_number', extracted_data.invoice_number, corrected_data.get('invoice_number'))
+            ('document_number', extracted_data.document_number, corrected_data.get('document_number'))
         ]
         
         for field, predicted, correct in comparisons:

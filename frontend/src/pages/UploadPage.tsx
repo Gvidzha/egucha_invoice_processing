@@ -168,10 +168,10 @@ const UploadPage: React.FC = () => {
               <div className="max-w-2xl mx-auto">
                 <div className="bg-gray-50 rounded-lg p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {processingResults.invoice_number && (
+                    {processingResults.document_number && (
                       <div className="bg-white p-4 rounded-lg">
                         <label className="text-sm font-medium text-gray-600">Pavadzīmes numurs</label>
-                        <p className="text-lg font-semibold">{processingResults.invoice_number}</p>
+                        <p className="text-lg font-semibold">{processingResults.document_number}</p>
                       </div>
                     )}
                     

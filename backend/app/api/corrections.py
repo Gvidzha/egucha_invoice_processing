@@ -43,7 +43,7 @@ async def update_invoice_with_corrections_endpoint(
         
         # Saglabāt vecākas vērtības salīdzināšanai
         old_values = {
-            "invoice_number": invoice.invoice_number,
+            "document_number": invoice.document_number,
             "supplier_name": invoice.supplier_name,
             "recipient_name": invoice.recipient_name,
             "total_amount": float(invoice.total_amount) if invoice.total_amount else None,
@@ -62,7 +62,7 @@ async def update_invoice_with_corrections_endpoint(
         
         # Jaunie dati
         new_values = {
-            "invoice_number": invoice.invoice_number,
+            "document_number": invoice.document_number,
             "supplier_name": invoice.supplier_name,
             "recipient_name": invoice.recipient_name,
             "total_amount": float(invoice.total_amount) if invoice.total_amount else None,
@@ -81,7 +81,7 @@ async def update_invoice_with_corrections_endpoint(
                 from app.services.extraction_service import ExtractedData
                 
                 extracted_data = ExtractedData()
-                extracted_data.invoice_number = old_values["invoice_number"]
+                extracted_data.document_number = old_values["document_number"]
                 extracted_data.supplier_name = old_values["supplier_name"]
                 extracted_data.recipient_name = old_values["recipient_name"]
                 extracted_data.total_amount = old_values["total_amount"]
@@ -118,7 +118,7 @@ async def update_invoice_with_corrections(db: Session, invoice: Invoice, correct
     """Atjaunina invoice ar lietotāja labojumiem"""
     
     field_mapping = {
-        'invoice_number': 'invoice_number',
+        'document_number': 'document_number',
         'supplier_name': 'supplier_name', 
         'recipient_name': 'recipient_name',
         'supplier_reg_number': 'supplier_reg_number',
@@ -189,7 +189,7 @@ async def learn_from_corrections(
             from app.services.extraction_service import ExtractedData
             
             extracted_data = ExtractedData()
-            extracted_data.invoice_number = invoice.invoice_number
+            extracted_data.document_number = invoice.document_number
             extracted_data.supplier_name = invoice.supplier_name
             extracted_data.recipient_name = invoice.recipient_name
             extracted_data.total_amount = float(invoice.total_amount) if invoice.total_amount else None

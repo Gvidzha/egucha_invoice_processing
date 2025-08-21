@@ -13,7 +13,7 @@ export interface Invoice {
   confidence_score?: number;
   
   // Ekstraktētie dati
-  invoice_number?: string;
+  document_number?: string;
   supplier_name?: string;
   supplier_confidence?: number;
   reg_number?: string;
@@ -67,7 +67,7 @@ export interface StatusResponse {
   // Document Information
   document_type?: string;
   document_series?: string;
-  invoice_number?: string;
+  document_number?: string;
   document_number?: string;
   invoice_date?: string;
   delivery_date?: string;

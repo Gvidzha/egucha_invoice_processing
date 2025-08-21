@@ -311,7 +311,7 @@ class TestStructureAwareExtraction:
         assert supplier is not None
         
         # Test invoice number extraction
-        invoice_num = await extraction_service._extract_invoice_number_from_zone("Invoice: INV-123")
+        invoice_num = await extraction_service._extract_document_number_from_zone("Invoice: INV-123")
         assert invoice_num == "INV-123"
         
         # Test date extraction
@@ -341,7 +341,7 @@ class TestStructureAwareLearning:
     def mock_extraction_result(self):
         """Mock StructureAwareExtractionResult for testing"""
         extracted_data = ExtractedData(
-            invoice_number="INV-123",
+            document_number="INV-123",
             supplier_name="Test Supplier",
             supplier_reg_number="12345",
             supplier_address="Test Address",
@@ -361,7 +361,7 @@ class TestStructureAwareLearning:
             extracted_data=extracted_data,
             zone_mapping={
                 "supplier_name": "supplier_info",
-                "invoice_number": "invoice_details",
+                "document_number": "invoice_details",
                 "total_amount": "amounts"
             },
             confidence_by_zone={
@@ -428,7 +428,7 @@ class TestStructureAwareLearning:
     @pytest.mark.asyncio
     async def test_pattern_based_learning(self, learning_service, mock_extraction_result):
         """Test pattern-based learning implementation"""
-        corrections = {"invoice_number": "CORRECTED-123"}
+        corrections = {"document_number": "CORRECTED-123"}
         
         result = await learning_service._learn_pattern_based(
             mock_extraction_result, corrections, None, 1

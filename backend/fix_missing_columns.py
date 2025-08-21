@@ -12,7 +12,7 @@ def add_missing_columns():
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS extracted_text TEXT;",
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS ocr_confidence DOUBLE PRECISION;",
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS ocr_strategy VARCHAR(50);",
-        "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS invoice_number VARCHAR(100);",
+        "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS document_number VARCHAR(100);",
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS vat_amount DOUBLE PRECISION;",
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS address TEXT;",
         "ALTER TABLE invoices ADD COLUMN IF NOT EXISTS uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;",

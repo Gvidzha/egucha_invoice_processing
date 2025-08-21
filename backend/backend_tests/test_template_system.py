@@ -213,7 +213,7 @@ def test_template_system():
     
     # Simulēti dati no esošās sistēmas
     simulated_db_data = {
-        "invoice_number": "INV-2025-001",
+        "document_number": "INV-2025-001",
         "supplier_name": "SIA Testa Uzņēmums",
         "supplier_reg_number": "12345678901",
         "recipient_name": "SIA Klients",

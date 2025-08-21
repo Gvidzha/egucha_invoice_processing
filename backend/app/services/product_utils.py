@@ -67,7 +67,7 @@ class ProductDataProcessor:
             "number": 0.0,
             "boolean": False
         }
-        return defaults.get(field_type, None)
+        return defaults.get(field_type)
     
     def products_to_json(self, products: List[Dict[str, Any]], schema_version: str = "1.0") -> str:
         """Konvertē produktus uz JSON string"""
@@ -126,7 +126,7 @@ class ProductDataProcessor:
     def _get_timestamp(self) -> str:
         """Atgriež pašreizējo timestamp"""
         from datetime import datetime
-        return datetime.utcnow().isoformat() + "Z"
+        return f"{datetime.utcnow().isoformat()}Z"
 
 # Utility functions
 def get_product_template_manager() -> ProductTemplateManager:

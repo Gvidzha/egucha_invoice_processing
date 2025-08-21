@@ -74,7 +74,9 @@ export const ProductManager: React.FC<ProductManagerProps> = ({
   const loadProductConfig = async () => {
     try {
       const response = await fetch('/api/v1/products/config');
-      if (!response.ok) throw new Error('Failed to load config');
+      if (!response.ok) {
+        throw new Error('Failed to load config');
+      }
       const configData = await response.json();
       setConfig(configData);
     } catch (error) {
@@ -83,7 +85,9 @@ export const ProductManager: React.FC<ProductManagerProps> = ({
   };
 
   const updateAvailableFields = () => {
-    if (!config) return;
+    if (!config) {
+      return;
+    }
 
     const fields = [
       ...config.base_fields,
@@ -97,7 +101,9 @@ export const ProductManager: React.FC<ProductManagerProps> = ({
     setLoading(true);
     try {
       const response = await fetch(`/api/v1/products/${invoiceId}`);
-      if (!response.ok) throw new Error('Failed to load products');
+      if (!response.ok) { 
+        throw new Error('Failed to load products');
+      }
       const data = await response.json();
       
       setProducts(data.products || []);
@@ -126,7 +132,9 @@ export const ProductManager: React.FC<ProductManagerProps> = ({
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to save products');
+      if (!response.ok) { 
+        throw new Error('Failed to save products');
+      }
       const data = await response.json();
 
       if (data.success) {

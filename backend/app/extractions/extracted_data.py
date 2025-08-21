@@ -7,7 +7,7 @@ from datetime import date
 class ExtractedData:
     """Ekstraktēto datu konteiners"""
     # Pamatinformācija
-    invoice_number: Optional[str] = None
+    document_number: Optional[str] = None
     
     # Piegādātāja informācija
     supplier_name: Optional[str] = None
@@ -57,7 +57,7 @@ class ExtractedData:
     def to_dict(self) -> Dict:
         """Konvertē uz dictionary API atgriešanai"""
         return {
-            "invoice_number": self.invoice_number,
+            "document_number": self.document_number,
             "supplier_name": self.supplier_name,
             "supplier_confidence": self.supplier_confidence,
             "reg_number": self.reg_number,

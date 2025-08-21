@@ -10,12 +10,14 @@ DATE_PATTERNS = [
 ]
 
 DELIVERY_DATE_PATTERNS = [
+    r"(\d{4}.\sgads\s\d{2}.\s*[a-zāčēģīķļņšūž]+)",
     r"(?i)piegādes\s*datums[:\s]*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",
     r"(?i)delivery\s*date[:\s]*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",
     r"(?i)datums\s*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",
 ]
 
 SERVICE_DELIVERY_DATE_PATTERNS = [
+    r"Pakalpojumu sniegšanas periods:\s*(\d{4}.\sgads\s[a-zāčēģīķļņšūž]+)",
     r"(?i)piegādes\s*datums[:\s]*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",
     r"(?i)delivery\s*date[:\s]*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",
     r"(?i)datums\s*([0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2,4})",

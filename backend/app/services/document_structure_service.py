@@ -251,46 +251,31 @@ class DocumentStructureAnalyzer:
         Atpazīst dokumenta zonas (header, body, footer, summary)
         """
         height, width = image.shape[:2]
-        zones = []
-        
-        # Header zone (top 25%)
         header_height = int(height * self.zone_detection_params["header_zone_ratio"])
-        header_zone = DocumentZone(
-            zone_type=ZoneType.HEADER,
-            bounds=BoundingBox(0, 0, width, header_height),
-            confidence=0.85  # Šobrīd static, vēlāk ar ML
-        )
-        zones.append(header_zone)
-        
-        # Footer zone (bottom 15%)
-        footer_height = int(height * self.zone_detection_params["footer_zone_ratio"])
-        footer_start = height - footer_height
-        footer_zone = DocumentZone(
-            zone_type=ZoneType.FOOTER,
-            bounds=BoundingBox(0, footer_start, width, height),
-            confidence=0.75
-        )
-        zones.append(footer_zone)
-        
-        # Summary zone (bottom 20%, overlaps with footer)
-        summary_height = int(height * self.zone_detection_params["summary_zone_ratio"])
-        summary_start = height - summary_height
-        summary_zone = DocumentZone(
-            zone_type=ZoneType.SUMMARY,
-            bounds=BoundingBox(0, summary_start, width, height),
-            confidence=0.70
-        )
-        zones.append(summary_zone)
-        
-        # Body zone (middle part)
-        body_zone = DocumentZone(
-            zone_type=ZoneType.BODY,
-            bounds=BoundingBox(0, header_height, width, footer_start),
-            confidence=0.90
-        )
-        zones.append(body_zone)
-        
-        self.logger.debug(f"Atpazītas {len(zones)} zonas")
+        footer_start = int(height * (1 - self.zone_detection_params["footer_zone_ratio"]))
+        summary_start = int(height * (1 - self.zone_detection_params["summary_zone_ratio"]))
+        zones = [
+            DocumentZone(
+                zone_type=ZoneType.HEADER,
+                bounds=BoundingBox(0, 0, width, header_height),
+                confidence=0.85
+            ),
+            DocumentZone(
+                zone_type=ZoneType.FOOTER,
+                bounds=BoundingBox(0, footer_start, width, height),
+                confidence=0.75
+            ),
+            DocumentZone(
+                zone_type=ZoneType.SUMMARY,
+                bounds=BoundingBox(0, summary_start, width, height),
+                confidence=0.70
+            ),
+            DocumentZone(
+                zone_type=ZoneType.BODY,
+                bounds=BoundingBox(0, header_height, width, footer_start),
+                confidence=0.90
+            ),
+        ]
         return zones
     
     async def _detect_tables(self, image: np.ndarray) -> List[TableRegion]:
@@ -671,16 +656,16 @@ class DocumentStructureAnalyzer:
             min_area = image_area * 0.002  # Min 0.2% no attēla
             max_area = image_area * 0.8    # Max 80% no attēla
             
-            if min_area <= table_area <= max_area:
-                # Pārbaudīt aspect ratio
-                width = table.bounds.x2 - table.bounds.x1
-                height = table.bounds.y2 - table.bounds.y1
-                aspect_ratio = width / height if height > 0 else 0
-                
-                if 0.1 <= aspect_ratio <= 20:  # Ļoti plašs diapazons
-                    # Pārbaudīt confidence
-                    if table.confidence >= 0.3:
-                        filtered.append(table)
+            width = table.bounds.x2 - table.bounds.x1
+            height = table.bounds.y2 - table.bounds.y1
+            aspect_ratio = width / height if height > 0 else 0
+            
+            if (
+                min_area <= table_area <= max_area
+                and 0.1 <= aspect_ratio <= 20
+                and table.confidence >= 0.3
+            ):
+                filtered.append(table)
         
         return filtered
     

@@ -3,6 +3,7 @@ Datu ekstraktēšanas serviss
 Ekstraktē strukturētus datus no OCR teksta izmantojot regex patterns un ML
 """
 
+from email.mime import text
 import re
 import asyncio
 from datetime import datetime, date
@@ -14,8 +15,10 @@ from dataclasses import dataclass
 from app.config import REGEX_PATTERNS, CONFIDENCE_THRESHOLD
 
 from app.extractions.extracted_data import ExtractedData
-from app.extractions.supplier_extractor import extract_supplier_name
+from app.extractions.supplier_name_extractor import extract_supplier_name
 from app.utils.ocr_utils import load_ocr_corrections, correct_ocr_text
+from app.regex_patterns.latvian_months import LATVIAN_MONTHS
+from app.extractions.date_extractor import extract_invoice_date
 
 
 logger = logging.getLogger(__name__)
@@ -47,7 +50,7 @@ class ExtractionService:
             extracted = ExtractedData()
             
             # Ekstraktēt pavadzīmes numuru
-            extracted.invoice_number = await self._extract_invoice_number(cleaned_text)
+            extracted.document_number = await self._extract_document_number(cleaned_text)
 
             # Ekstraktēt piegādātāju
             extracted.supplier_name, extracted.supplier_confidence = await self._extract_supplier(cleaned_text)
@@ -85,100 +88,23 @@ class ExtractionService:
             logger.error(f"Datu ekstraktēšanas kļūda: {e}")
             return ExtractedData()
             
-    async def _extract_invoice_number(self, text: str) -> Optional[str]:
+    async def _extract_document_number(self, text: str) -> Optional[str]:
         """Ekstraktē pavadzīmes numuru"""
-        for pattern in self.patterns["invoice_number"]:
+        for pattern in self.patterns["document_number"]:
             match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
             if match:
-                number = match.group(1).strip()
+                number = match[1].strip()
                 logger.debug(f"Atrasts pavadzīmes numurs: {number}")
                 return number
         return None
     
     async def _extract_supplier(self, text: str) -> Tuple[Optional[str], float]:
-        """Ekstraktē piegādātāja nosaukumu"""
-        for pattern in self.patterns["supplier"]:
-            match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
-            if match:
-                supplier = match.group(1) if match.groups() else match.group(0)
-                supplier = supplier.strip()
-                
-                # Tīrām nevajadzīgos simbolus
-                supplier = re.sub(r'\s+', ' ', supplier)
-                supplier = supplier.replace('\n', ' ').replace('\r', ' ')
-                
-                # Specifiskā logika uzņēmumu atpazīšanai
-                supplier_clean = self._normalize_supplier_name(supplier, text)
-                
-                # Aprēķinām confidence
-                confidence = 0.7
-                if any(word in supplier_clean.upper() for word in ['SIA', 'AS', 'Z/S']):
-                    confidence += 0.1
-                if len(supplier_clean) > 3 and len(supplier_clean) < 50:
-                    confidence += 0.1
-                if 'peterstirgus' in text.lower() or 'petertirgus' in text.lower():
-                    if 'peter' in supplier_clean.lower():
-                        confidence += 0.1
-                        
-                logger.debug(f"Atrasts piegādātājs: {supplier_clean} (confidence: {confidence})")
-                return supplier_clean, min(confidence, 1.0)
-        return None, 0.0
+        return extract_supplier_name(text, self.patterns["supplier_name"])
         
-    def _normalize_supplier_name(self, supplier: str, full_text: str) -> str:
-        """Normalizē uzņēmuma nosaukumu"""
-        # Lindström specific
-        if 'lindstrom' in full_text.lower() or 'lindström' in full_text.lower():
-            return "SIA Lindström"
-            
-        # Specifiskā loģika Liepājas Pētertirgus
-        if 'peterstirgus.lv' in full_text.lower():
-            return "Liepājas Pētertirgus"
-        if any(word in full_text.lower() for word in ['petertirgus', 'peterstirgus', 'ertirg']):
-            if any(word in full_text.lower() for word in ['liepaj', 'liepāj']):
-                return "Liepājas Pētertirgus"
-            return "Pētertirgus"
-            
-        # TIM-T specifisks
-        if 'TIM-T' in supplier or 'tim-t' in supplier.lower():
-            return "SIA TIM-T"
-            
-        # Vispārīga tīrīšana
-        supplier = re.sub(r'^(SIA|AS|Z/S)\s*', '', supplier, flags=re.IGNORECASE)
-        supplier = supplier.strip('"\'.,;')
         
-        return supplier
-        
+    
     async def _extract_invoice_date(self, text: str) -> Optional[date]:
-        """Ekstraktē pavadzīmes datumu"""
-        latvian_months = {
-            'janvāris': 1, 'februāris': 2, 'marts': 3, 'aprīlis': 4,
-            'maijs': 5, 'jūnijs': 6, 'jūlijs': 7, 'augusts': 8,
-            'septembris': 9, 'oktobris': 10, 'novembris': 11, 'decembris': 12
-        }
-        
-        for pattern in self.patterns["date"]:
-            match = re.search(pattern, text, re.IGNORECASE)
-            if match:
-                try:
-                    groups = match.groups()
-                    if len(groups) == 3:
-                        if groups[2] in latvian_months:  # Latviešu mēnesis
-                            year, day, month_name = groups
-                            month = latvian_months[groups[2]]
-                            parsed_date = date(int(year), month, int(day))
-                        else:  # Ciparu formāts
-                            if len(groups[0]) == 4:  # YYYY-MM-DD formāts
-                                year, month, day = groups
-                            else:  # DD-MM-YYYY formāts
-                                day, month, year = groups
-                            parsed_date = date(int(year), int(month), int(day))
-                        
-                        logger.debug(f"Atrasts datums: {parsed_date}")
-                        return parsed_date
-                except (ValueError, IndexError) as e:
-                    logger.warning(f"Nevarēja parsēt datumu: {match.group(0)} - {e}")
-                    continue
-        return None
+        return extract_invoice_date(text, self.patterns["date"])
         
     async def _extract_delivery_date(self, text: str) -> Optional[date]:
         """Ekstraktē piegādes datumu (pagaidām tāds pats kā invoice datums)"""
@@ -190,7 +116,7 @@ class ExtractionService:
         for pattern in self.patterns["total"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                amount_str = match.group(1).strip()
+                amount_str = match[1].strip()
                 try:
                     # Tīrām un konvertējam
                     amount_str = amount_str.replace(' ', '').replace(',', '.')
@@ -207,7 +133,7 @@ class ExtractionService:
         for pattern in self.patterns["vat"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                amount_str = match.group(1).strip()
+                amount_str = match[1].strip()
                 try:
                     amount_str = amount_str.replace(' ', '').replace(',', '.')
                     amount = float(re.sub(r'[^\d.]', '', amount_str))
@@ -231,7 +157,7 @@ class ExtractionService:
         for pattern in self.patterns["reg_number"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                reg_num = match.group(1).strip()
+                reg_num = match[1].strip()
                 logger.debug(f"Atrasts reģ. numurs: {reg_num}")
                 return reg_num
         return None
@@ -241,14 +167,14 @@ class ExtractionService:
         for pattern in self.patterns["address"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                address = match.group(1).strip()
+                address = match[1].strip()
                 # Tīrām adresi
                 address = re.sub(r'\s+', ' ', address)
                 address = address.replace('\n', ' ').replace('\r', ' ')
                 logger.debug(f"Atrasta adrese: {address}")
                 return address
         return None
-        return None
+       
     
     async def _extract_delivery_date(self, text: str) -> Optional[date]:
         """Ekstraktē piegādes datumu"""
@@ -262,14 +188,14 @@ class ExtractionService:
         for pattern in delivery_patterns:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                date_str = match.group(1)
+                date_str = match[1]
                 try:
                     # Vienkārša datuma parsēšana
                     parts = re.split(r'[\./\-]', date_str)
                     if len(parts) == 3:
                         day, month, year = parts
                         if len(year) == 2:
-                            year = "20" + year
+                            year = f"20{year}"
                         parsed_date = date(int(year), int(month), int(day))
                         return parsed_date
                 except ValueError:
@@ -283,7 +209,7 @@ class ExtractionService:
         for pattern in self.patterns["total"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                amount_str = match.group(1).strip()
+                amount_str = match[1].strip()
                 try:
                     # Tīrām un konvertējam
                     amount_str = amount_str.replace(' ', '').replace(',', '.')
@@ -347,7 +273,7 @@ class ExtractionService:
         for pattern in self.patterns["bank_account"]:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                account = match.group(1).strip()
+                account = match[1].strip()
                 # Noņemam atstarpes no IBAN
                 account = re.sub(r'\s+', '', account)
                 logger.debug(f"Atrasts bankas konts: {account}")
@@ -356,28 +282,17 @@ class ExtractionService:
     
     async def _calculate_confidence_scores(self, extracted: ExtractedData) -> Dict[str, float]:
         """Aprēķina confidence scores visiem ekstraktētajiem datiem"""
-        scores = {}
+        scores = {
+            "supplier": 0.8 if extracted.supplier_name else 0.0,
+            "invoice_date": 0.8 if extracted.invoice_date else 0.0,
+            "delivery_date": 0.8 if extracted.delivery_date else 0.0,
+            "total_amount": 0.8 if extracted.total_amount and extracted.total_amount > 0 else 0.0,
+            "vat_amount": 0.7 if extracted.vat_amount and extracted.vat_amount >= 0 else 0.0,
+            "products": 0.8 if extracted.products and len(extracted.products) > 0 else 0.0,
+        }
         
-        # Supplier confidence
-        scores["supplier"] = 0.8 if extracted.supplier_name else 0.0
         if extracted.supplier_name and 'SIA' in extracted.supplier_name:
             scores["supplier"] += 0.1
-            
-        # Date confidence
-        scores["invoice_date"] = 0.8 if extracted.invoice_date else 0.0
-        scores["delivery_date"] = 0.8 if extracted.delivery_date else 0.0
-        
-        # Amount confidence
-        scores["total_amount"] = 0.8 if extracted.total_amount and extracted.total_amount > 0 else 0.0
-        scores["vat_amount"] = 0.7 if extracted.vat_amount and extracted.vat_amount >= 0 else 0.0
-        
-        # Products confidence
-        scores["products"] = 0.8 if extracted.products and len(extracted.products) > 0 else 0.0
-        
-        # Overall confidence (vidējais)
-        valid_scores = [score for score in scores.values() if score > 0]
-        scores["overall"] = sum(valid_scores) / len(valid_scores) if valid_scores else 0.0
-        
         return scores
     
     # =================== SAŅĒMĒJA EKSTRAKTĒŠANA ===================
@@ -398,7 +313,7 @@ class ExtractionService:
         for pattern in recipient_patterns:
             match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
             if match:
-                recipient = match.group(1).strip()
+                recipient = match[1].strip()
                 
                 # Tīrām un normalizējam
                 recipient = re.sub(r'\s+', ' ', recipient)
@@ -428,7 +343,7 @@ class ExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE | re.DOTALL)
             if match:
-                reg_num = match.group(1).strip()
+                reg_num = match[1].strip()
                 logger.debug(f"Atrasts saņēmēja reģ.nr: {reg_num}")
                 return reg_num
         return None
@@ -444,7 +359,7 @@ class ExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE | re.DOTALL)
             if match:
-                address = match.group(1).strip()
+                address = match[1].strip()
                 if len(address) > 5:
                     return address
         return None
@@ -459,7 +374,7 @@ class ExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE | re.DOTALL)
             if match:
-                account = match.group(1).strip()
+                account = match[1].strip()
                 return account
         return None
     
@@ -477,7 +392,7 @@ class ExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                reg_num = match.group(1).strip()
+                reg_num = match[1].strip()
                 logger.debug(f"Atrasts piegādātāja reģ.nr: {reg_num}")
                 return reg_num
         return None
@@ -524,7 +439,7 @@ class ExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
             if match:
-                amount_str = match.group(1).strip()
+                amount_str = match[1].strip()
                 try:
                     amount = float(re.sub(r'[,\s]', '.', amount_str.replace(' ', '')))
                     if amount > 0:
@@ -549,7 +464,7 @@ class ExtractionService:
             for pattern in table_patterns:
                 match = re.search(pattern, text, re.IGNORECASE | re.DOTALL | re.MULTILINE)
                 if match:
-                    table_text = match.group(1)
+                    table_text = match[1]
                     products.extend(await self._parse_product_lines(table_text))
                     break
             

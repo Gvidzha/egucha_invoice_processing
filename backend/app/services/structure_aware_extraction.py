@@ -53,10 +53,10 @@ class StructureAwareExtractionService:
         
         # Zone-to-field mapping strategies
         self.zone_field_mapping = {
-            ZoneType.HEADER: ["supplier_name", "invoice_number", "invoice_date"],
+            ZoneType.HEADER: ["supplier_name", "document_number", "invoice_date"],
             ZoneType.SUPPLIER_INFO: ["supplier_name", "supplier_reg_number", "supplier_address"],
             ZoneType.RECIPIENT_INFO: ["recipient_name", "recipient_reg_number", "recipient_address"],
-            ZoneType.INVOICE_DETAILS: ["invoice_number", "invoice_date", "delivery_date"],
+            ZoneType.INVOICE_DETAILS: ["document_number", "invoice_date", "delivery_date"],
             ZoneType.AMOUNTS: ["total_amount", "vat_amount", "currency"],
             ZoneType.TABLE: ["products"],
             ZoneType.FOOTER: ["supplier_bank_account", "recipient_bank_account"]
@@ -190,7 +190,7 @@ class StructureAwareExtractionService:
                     if zone_enum.value == zone_type_str or zone_enum.name.lower() == zone_type_str.lower():
                         return zone_enum
             return None
-        except:
+        except Exception:
             return None
     
     async def _extract_specific_field(self, field: str, text: str, zone_type: str) -> Optional[Any]:
@@ -199,9 +199,9 @@ class StructureAwareExtractionService:
             # Use zone-optimized patterns
             if field == "supplier_name" and "supplier" in zone_type.lower():
                 return await self._extract_supplier_from_zone(text)
-            elif field == "invoice_number" and "invoice" in zone_type.lower():
-                return await self._extract_invoice_number_from_zone(text)
-            elif field in ["invoice_date", "delivery_date"] and any(x in zone_type.lower() for x in ["date", "header", "invoice"]):
+            elif field == "document_number" and "invoice" in zone_type.lower():
+                return await self._extract_document_number_from_zone(text)
+            elif field in {"invoice_date", "delivery_date"} and any(x in zone_type.lower() for x in {"date", "header", "invoice"}):
                 return await self._extract_date_from_zone(text)
             elif field == "total_amount" and "amount" in zone_type.lower():
                 return await self._extract_amount_from_zone(text)
@@ -228,10 +228,10 @@ class StructureAwareExtractionService:
         for pattern in patterns:
             match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
             if match:
-                return match.group(1).strip()
+                return match[1].strip()
         return None
     
-    async def _extract_invoice_number_from_zone(self, text: str) -> Optional[str]:
+    async def _extract_document_number_from_zone(self, text: str) -> Optional[str]:
         """Zone-optimized invoice number extraction"""
         patterns = [
             r'(?:Rēķins|Invoice|Nr\.?)[:\s]*([A-Z0-9\-/]+)',
@@ -298,7 +298,7 @@ class StructureAwareExtractionService:
             if product:
                 products.append(product)
         
-        return products if products else None
+        return products or None
     
     async def _parse_product_line(self, line: str) -> Optional[Dict[str, Any]]:
         """Parse individual product line from table"""
@@ -339,7 +339,7 @@ class StructureAwareExtractionService:
                                ocr_result: StructureAwareOCRResult) -> ExtractedData:
         """Intelligent merging no zone un fallback extractions"""
         merged = ExtractedData(
-            invoice_number=None,
+            document_number=None,
             supplier_name=None,
             supplier_reg_number=None,
             supplier_address=None,
@@ -376,7 +376,7 @@ class StructureAwareExtractionService:
         
         # Fill remaining fields from fallback
         fallback_fields = {
-            "invoice_number": fallback_data.invoice_number,
+            "document_number": fallback_data.document_number,
             "supplier_name": fallback_data.supplier_name,
             "supplier_reg_number": fallback_data.supplier_reg_number,
             "supplier_address": fallback_data.supplier_address,

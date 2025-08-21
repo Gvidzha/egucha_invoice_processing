@@ -242,7 +242,7 @@ class NERService:
             'recipient_name': 'RECIPIENT', 
             'supplier_reg_number': 'REG_NUMBER',
             'recipient_reg_number': 'RECIPIENT_REG_NUMBER',
-            'invoice_number': 'INVOICE_NUMBER',
+            'document_number': 'INVOICE_NUMBER',
             'total_amount': 'AMOUNT',
             'vat_amount': 'VAT_AMOUNT',
             'invoice_date': 'DATE',

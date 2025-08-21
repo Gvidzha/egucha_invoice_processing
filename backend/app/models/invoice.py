@@ -27,7 +27,7 @@ class Invoice(Base):
     confidence_score = Column(Float)  # Kopējais pārliecības līmenis
     
     # Ekstraktētā informācija
-    invoice_number = Column(String(100))  # Pavadzīmes numurs
+    document_number = Column(String(100))  # Pavadzīmes numurs
     
     # Piegādātāja informācija  
     supplier_name = Column(String(255))
@@ -104,7 +104,7 @@ class Invoice(Base):
     # JSON/Complex lauki template sistēmai
     supplier_banks_json = Column(Text)  # JSON - banku informācija
     
-    # Produktu sistema - elastīga JSON struktūra
+    # Produktu sistēma - elastīga JSON struktūra
     product_items = Column(Text)  # JSON - pilna produktu informācija
     product_summary = Column(Text)  # Vienkāršs produktu kopsavilkums
     product_schema_version = Column(String(10), default="1.0")  # Shēmas versija

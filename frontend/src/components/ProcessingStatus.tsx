@@ -104,8 +104,10 @@ const ProcessingStatus: React.FC<ProcessingStatusProps> = ({
   };
 
   const getProgressPercentage = () => {
-    if (!status) return 0;
-    
+    if (!status) { 
+      return 0;
+    }
+
     switch (status.status) {
       case 'uploaded':
         return 25;

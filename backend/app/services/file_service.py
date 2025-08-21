@@ -215,7 +215,7 @@ class FileService:
         """
         try:
             path = Path(file_path)
-            if path.exists() and path.is_file():
+            if path.is_file():
                 path.unlink()
                 return True
             return False

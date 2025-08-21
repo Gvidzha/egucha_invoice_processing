@@ -54,7 +54,7 @@ PDF_CONFIG = {
 # Regex patterni datu ekstraktēšanai
 REGEX_PATTERNS = {
     # Pavadzīmes numurs - uzlaboti patterni
-    "invoice_number": [
+    "document_number": [
         r"(?i)pavadz[īi]me\s+nr\.?\s*([A-Z0-9\-\/]+)",
         r"(?i)invoice\s+no\.?\s*[\:\s]*([A-Z0-9\-\/]+)",
         r"(?i)dokuments?\s+nr\.?\s*([A-Z0-9\-\/]+)",

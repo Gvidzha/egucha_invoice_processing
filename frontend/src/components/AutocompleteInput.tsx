@@ -77,7 +77,9 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!showSuggestions || filteredSuggestions.length === 0) return;
+    if (!showSuggestions || filteredSuggestions.length === 0) {
+      return;
+    }
 
     switch (e.key) {
       case 'ArrowDown':
