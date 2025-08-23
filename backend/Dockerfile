@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-COPY alembic.ini .
+COPY backend/alembic.ini .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN echo "==== requirements.txt ====" && cat requirements.txt
 
